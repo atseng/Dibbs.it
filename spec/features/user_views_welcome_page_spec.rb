@@ -57,6 +57,8 @@ describe 'a user visting the welcome page' do %q{
       fill_in "Password", with: user.password
       click_button "Sign in"
       expect(page).to have_content("Signed in successfully.")
+      save_and_open_page
+      expect(page).to have_content("My Items")
     end
   end
 

@@ -18,7 +18,7 @@ describe 'a user visting the welcome page' do %q{
   describe 'visitor must sign in to use app' do
     it 'displays sign in as the welcome page' do
       visit users_path
-      expect(page).to have_content('Sign in')
+      expect(page).to have_button('Sign in')
     end
   end
 

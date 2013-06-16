@@ -28,4 +28,26 @@ describe 'a user visting the welcome page' do %q{
     end
   end
 
+  describe 'visitor can register as new user' do
+    let(:user) {FactoryGirl.build(:user)}
+    it 'creates a valid user' do
+      visit new_user_registration_path
+      fill_in "Email", with: user.email
+      fill_in "Password", with: user.password
+      fill_in "Password confirmation", with: user.password_confirmation
+      click_button "Sign up"
+      expect(page).to have_content("Welcome! You have signed up successfully.")
+    end
+  end
+
+  describe 'vistor creating an invalid new user' do
+    it 'creates a invalid user' do
+      visit new_user_registration_path
+      click_button "Sign up"
+      expect(page).to have_content("can't be blank")
+    end
+  end
+
+
+
 end

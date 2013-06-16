@@ -21,3 +21,5 @@ describe 'a user visting the welcome page' do %q{
       expect(page).to have_content('Sign in')
     end
   end
+
+end

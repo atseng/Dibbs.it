@@ -12,8 +12,13 @@ describe 'a user visting the welcome page' do %q{
   * Visitor must provide a password
   * Visitor must confirm password
   * Valid User can sign in
-
+  * Valid User can sign out
 }
+
+  before(:each) do
+    User.destroy_all
+  end
+
 
   describe 'visitor must sign in to use app' do
     it 'displays sign in as the welcome page' do
@@ -57,9 +62,20 @@ describe 'a user visting the welcome page' do %q{
       fill_in "Password", with: user.password
       click_button "Sign in"
       expect(page).to have_content("Signed in successfully.")
-      save_and_open_page
       expect(page).to have_content("My Items")
     end
   end
 
+  describe 'valid user can sign out' do
+    let(:user) {FactoryGirl.create(:user)}
+    it 'signs out a valid user' do
+      visit users_path
+      fill_in "Email", with: user.email
+      fill_in "Password", with: user.password
+      click_button "Sign in"
+      expect(page).to have_content("My Items")
+      click_link "Sign out"
+      expect(page).to have_content("Signed out successfully.")
+    end
+  end
 end

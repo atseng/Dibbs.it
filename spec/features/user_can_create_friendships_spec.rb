@@ -16,7 +16,7 @@ describe 'User can request a friendship' do %q{
 
   describe 'User can make a friend request' do
     it 'Valid user sends a friend request' do
-      visit user_show_path
+      visit
       click_button "Friend"
     end
   end

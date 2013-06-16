@@ -11,6 +11,7 @@ describe 'a user visting the welcome page' do %q{
   * Visitor must provide an email
   * Visitor must provide a password
   * Visitor must confirm password
+  * Valid User can sign in
 
 }
 
@@ -48,6 +49,15 @@ describe 'a user visting the welcome page' do %q{
     end
   end
 
-
+  describe 'valid user sign in' do
+    let(:user) {FactoryGirl.create(:user)}
+    it 'signs in a valid user' do
+      visit users_path
+      fill_in "Email", with: user.email
+      fill_in "Password", with: user.password
+      click_button "Sign in"
+      expect(page).to have_content("Signed in successfully.")
+    end
+  end
 
 end

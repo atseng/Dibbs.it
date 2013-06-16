@@ -30,6 +30,8 @@ end
 
 group :test do
   gem 'factory_girl_rails'
+  gem 'valid_attribute'
+  gem 'shoulda-matchers'
 end
 
 gem 'jquery-rails'

@@ -23,7 +23,7 @@ describe 'User can upload an object' do %q{
       fill_in "Name", with: "SFX Lawnmower"
       fill_in "Description", with: "Steel blade high power. Stiff shifter."
       fill_in "Value", with: 120
-      click_link "Add Item"
+      click_button "Add Item"
       expect(page).to have_content("Item created")
       expect(item_count + 1).to eq(Item.count)
     end
@@ -35,7 +35,7 @@ describe 'User can upload an object' do %q{
       sign_in(user)
       item_count = Item.count
       visit new_item_path
-      click_link "Add Item"
+      click_button "Add Item"
       expect(page).to have_content("can't be blank")
       expect(item_count).to eq(Item.count)
     end

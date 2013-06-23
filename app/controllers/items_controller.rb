@@ -1,5 +1,9 @@
 class ItemsController < ApplicationController
-before_filter :authenticate_user!, :only => [:new, :create]
+before_filter :authenticate_user!, :only => [:new, :create, :show]
+
+  def index
+    @items = Item.all
+  end
 
   def new
     @item = Item.new

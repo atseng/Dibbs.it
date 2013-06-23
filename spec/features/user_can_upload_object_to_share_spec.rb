@@ -15,14 +15,11 @@ describe 'User can upload an object' do %q{
 }
   describe 'Signed in User submits valid object' do
   let(:user) {FactoryGirl.create(:user)}
+  let(:item) {FactoryGirl.build(:item)}
     it 'creates a valid item ' do
       sign_in(user)
       item_count = Item.count
-      visit new_item_path
-      fill_in "Name", with: "SFX Lawnmower"
-      fill_in "Description", with: "Steel blade high power. Stiff shifter."
-      fill_in "Value", with: 120
-      click_button "Add Item"
+      create_item(item)
       expect(page).to have_content("Item created")
       expect(item_count + 1).to eq(Item.count)
     end

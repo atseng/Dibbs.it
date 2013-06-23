@@ -9,4 +9,21 @@ FactoryGirl.define do
     password_confirmation 'northern_soul'
   end
 
+  factory :item do
+    name 'Skip it'
+    description '90s skipping toy'
+    value '15'
+  end
+
+
+
+
+
+
+
+
+
+
+
+
 end

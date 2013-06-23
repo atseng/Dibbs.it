@@ -10,7 +10,6 @@ describe 'User can upload an object' do %q{
   * I can upload an object
   * I can specify the object name
   * I can specify object description
-  * I can upload an image/avatar of the object
   * I can specify object value
 
 }

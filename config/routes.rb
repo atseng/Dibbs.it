@@ -2,9 +2,12 @@ Dibbs::Application.routes.draw do
 
   devise_for :users
 
-  resources :users
+  resources :users, except: [:show]
+  resources :items, only: [:show, :new, :create]
 
-  resources :items
+  resources :users, only: [:show] do
+    resources :items, only: [:index]
+  end
 
   root :to => "users#index"
   # The priority is based upon order of creation:

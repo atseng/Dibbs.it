@@ -23,7 +23,7 @@ describe 'User can edit an object' do %q{
     it 'updates a valid item properties' do
      sign_in(user)
      create_item(item)
-     click_link "Edit"
+     first(:link, "Edit").click
      fill_in 'Description', with: "Most awesome 90s toy ever."
      click_button 'Submit'
      expect(page).to have_content("Item updated")
@@ -37,7 +37,7 @@ describe 'User can edit an object' do %q{
      sign_in(user)
      item_count = Item.count
      create_item(item)
-     click_link "Destroy"
+     first(:link, "Destroy").click
      expect(item_count).to eq(Item.count)
     end
   end

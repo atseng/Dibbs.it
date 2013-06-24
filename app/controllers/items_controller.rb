@@ -21,8 +21,19 @@ before_filter :authenticate_user!, :only => [:new, :create, :edit, :show, :destr
   end
 
   def edit
-    # @item = Item.find(params[:item])
-    @item = current_user.items.find(params[:id])
+    @user = User.find(params[:user_id])
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:user_id])
+    @item = Item.find(params[:id])
+
+    if @item.update_attributes(params[:user_id => current_user, :id => @item])
+      redirect_to user_items_path(current_user), notice: "Successfully updated item."
+    else
+      render "edit", flash[:notice] = "Error. Item not updated."
+    end
   end
 
   def show
@@ -30,8 +41,10 @@ before_filter :authenticate_user!, :only => [:new, :create, :edit, :show, :destr
   end
 
   def destroy
-    @item = Item.find(params[:item])
+    @item = Item.find(params[:id])
     @item.destroy
+
+    redirect_to user_items_path(current_user), notice: "Successfully deleted item."
   end
 
 

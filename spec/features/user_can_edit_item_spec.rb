@@ -24,9 +24,10 @@ describe 'User can edit an object' do %q{
      sign_in(user)
      create_item(item)
      first(:link, "Edit").click
+     fill_in 'Name', with: "Double Skip it"
      fill_in 'Description', with: "Most awesome 90s toy ever."
-     click_button 'Submit'
-     expect(page).to have_content("Item updated")
+     click_button 'Edit Item'
+     expect(page).to have_content("Successfully updated item.")
     end
   end
 
@@ -38,7 +39,8 @@ describe 'User can edit an object' do %q{
      item_count = Item.count
      create_item(item)
      first(:link, "Destroy").click
-     expect(item_count).to eq(Item.count)
+     expect(item_count).to eq(Item.count - 1)
+     expect(page).to have_content("Successfully deleted item.")
     end
   end
 

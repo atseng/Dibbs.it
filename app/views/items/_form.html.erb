@@ -1,4 +1,4 @@
-<%= form_for @item do |f| %>
+<%= form_for([@user, @item]) do |f| %>
 <% if @item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -24,8 +24,9 @@
 <%= f.label :value %>
 <%= f.text_field :value %>
 
-<%= hidden_field_tag :item_id, @item.id %>
-
-<%= f.submit "Add Item" %>
+<%= f.submit "Edit Item" %>
 
 <% end %>
+
+
+<%= debug(params) if Rails.env.development? %>

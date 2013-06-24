@@ -3,7 +3,16 @@ require 'spec_helper'
 describe User do
 
   describe "associations" do
-    it { should have_many(:items).dependent(:destroy) }
+    context "items" do
+      it { should have_many(:items).dependent(:destroy) }
+    end
+
+    context "friends" do
+      it { should have_many :friendships }
+      it { should have_many(:friends).through(:friendships) }
+      it { should have_many(:inverse_friendships) }
+      it { should have_many(:inverse_friends).through(:inverse_friendships) }
+    end
   end
 
   describe "validations" do
@@ -49,6 +58,20 @@ describe User do
       user_count = User.all.count
       user = FactoryGirl.create(:user)
       expect(User.all.count).to eql(user_count+1)
+    end
+
+  end
+
+  describe "friends" do
+
+    it "creates a self-referential association between two users" do
+      friendship = FactoryGirl.create(:friendship)
+
+      user1 = friendship.user
+      user2 = friendship.friend
+
+      expect(user1.all_friends).to include user2
+      expect(user2.all_friends).to include user1
     end
 
   end

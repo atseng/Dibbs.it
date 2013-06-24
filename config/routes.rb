@@ -2,14 +2,13 @@ Dibbs::Application.routes.draw do
 
   devise_for :users
 
-  resources :users, except: [:show] do
-    resources :friendship, only: [:create, :update, :destroy], controller: 'friends'
-  end
+  resources :users, except: [:show]
 
   resources :items, only: [:show, :new, :create]
 
   resources :users, only: [:show] do
     resources :items, only: [:index, :edit, :update, :destroy]
+    resources :friendship, only: [:create, :update, :destroy], controller: 'friends'
   end
 
   root :to => "users#edit"

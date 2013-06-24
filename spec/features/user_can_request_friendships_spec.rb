@@ -18,8 +18,8 @@ describe 'User can request a friendship' do %q{
     it 'creates a friend request' do
       sign_in(user)
       visit users_path
-      save_and_open_page
       click_button "Friend Request"
+      expect(page).to have_content("Friendship Pending")
     end
   end
 

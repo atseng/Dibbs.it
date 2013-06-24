@@ -11,7 +11,7 @@
           <tr>
             <td><%= user.name %></td>
             <td><%= user.email %></td>
-            <td><%= button_to "Friend Request", new_friendship_path, :method => "get" %></td>
+            <td><%= button_to "Friend Request",friendship_index_path, :method => "post" %></td>
           </tr>
         <% end %>
       </table>

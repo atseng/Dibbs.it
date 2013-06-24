@@ -4,7 +4,7 @@ Dibbs::Application.routes.draw do
 
   resources :users, except: [:show]
 
-  resources :friendship
+  resources :friendship, only: [:create, :update, :destroy]
 
   resources :items, only: [:show, :new, :create]
 

@@ -23,14 +23,14 @@ describe 'a user visting the welcome page' do %q{
 
   describe 'visitor must sign in to use app' do
     it 'displays sign in as the welcome page' do
-      visit users_path
+      visit root_path
       expect(page).to have_button('Sign in')
     end
   end
 
   describe 'visitor can sign up ' do
     it 'displays sign up for visitors who are not valid users' do
-      visit users_path
+      visit root_path
       expect(page).to have_link('Sign up now')
     end
   end
@@ -59,7 +59,7 @@ describe 'a user visting the welcome page' do %q{
   describe 'valid user sign in' do
     let(:user) {FactoryGirl.create(:user)}
     it 'signs in a valid user' do
-      visit users_path
+      visit root_path
       fill_in "Email", with: user.email
       fill_in "Password", with: user.password
       click_button "Sign in"
@@ -71,7 +71,7 @@ describe 'a user visting the welcome page' do %q{
   describe 'valid user can sign out' do
     let(:user) {FactoryGirl.create(:user)}
     it 'signs out a valid user' do
-      visit users_path
+      visit root_path
       fill_in "Email", with: user.email
       fill_in "Password", with: user.password
       click_button "Sign in"

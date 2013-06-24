@@ -1,0 +1,22 @@
+<% unless user_signed_in? %>
+  <%= form_for("user", :url => user_session_path) do |f| %>
+    <%= f.label :email %> <br/>
+    <%= f.text_field :email , :size=>'15',:maxlength=>'32' %> <br/>
+    <%= f.label :password %> <br/>
+    <%= f.password_field :password , :size=>'15', :maxlength=>'32' %>
+<br/>
+    <%= f.submit "Sign in" %> <br />
+    <%= link_to "Forgot your password?", new_password_path('user')  %> <br/>
+    <%= link_to "Sign up now", new_user_registration_path %>
+  <% end %>
+  <% else %>
+
+  <li><%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
+
+  <li><%= link_to "Add Item", new_item_path %></li>
+
+  <p> My Items </p>
+
+  <% end %>
+
+  <%= debug(params) if Rails.env.development? %>

@@ -17,7 +17,6 @@ describe 'User can request a friendship' do %q{
   let(:user) {FactoryGirl.create(:user)}
     it 'creates a friend request' do
       sign_in(user)
-      save_and_open_page
       click_button "Friend"
     end
   end

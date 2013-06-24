@@ -2,9 +2,9 @@ Dibbs::Application.routes.draw do
 
   devise_for :users
 
-  resources :users, except: [:show]
-
-  resources :friendship, only: [:create, :update, :destroy]
+  resources :users, except: [:show] do
+    resources :friendship, only: [:create, :update, :destroy]
+  end
 
   resources :items, only: [:show, :new, :create]
 

@@ -22,18 +22,33 @@ describe Item do
       it {should validate_presence_of(:value)}
       it {should respond_to(:value)}
     end
+
   end
+
 
   describe 'creating an item' do
-    let(:item) do
-      FactoryGirl.create(:item)
+    it "will not be valid if name field is empty" do
+      item = FactoryGirl.build(:item, name: nil)
+      expect(item).to_not be_valid
     end
+
+    it "will not be valid if description field is empty" do
+      item = FactoryGirl.build(:item, description: nil)
+      expect(item).to_not be_valid
+    end
+
+    it "will not be valid if value field is empty" do
+      item = FactoryGirl.build(:item, value: nil)
+      expect(item).to_not be_valid
+    end
+
+    it "should accept name, description, value" do
+      item_count = Item.all.count
+      item = FactoryGirl.create(:item)
+      expect(Item.all.count).to eql(item_count+1)
+    end
+
   end
-
-
-
-
-
 
 end
 

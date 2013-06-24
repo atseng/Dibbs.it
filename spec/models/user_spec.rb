@@ -21,6 +21,7 @@ describe User do
       it { should validate_presence_of(:password) }
       it { should respond_to(:password) }
     end
+
   end
 
   describe "creating a new user" do
@@ -49,8 +50,7 @@ describe User do
       user = FactoryGirl.create(:user)
       expect(User.all.count).to eql(user_count+1)
     end
+
   end
-
-
 
 end

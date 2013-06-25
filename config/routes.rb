@@ -8,7 +8,7 @@ Dibbs::Application.routes.draw do
 
   resources :users, only: [:show] do
     resources :items, only: [:index, :edit, :update, :destroy]
-    resources :friendship, only: [:create, :update, :destroy], controller: 'friends'
+    resources :friendships, only: [:create, :update, :destroy], controller: "friends"
   end
 
   root :to => "users#edit"

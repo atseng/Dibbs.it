@@ -11,7 +11,9 @@
           <tr>
             <td><%= user.name %></td>
             <td><%= user.email %></td>
-            <td><%= button_to "Friend Request",user_friendship_index_path, :method => "post" %></td>
+            <td><%= form_for(:friendship, :url => user_friendships_path(:user_id => current_user.id, :friend_id => user.id)) do |f| %>
+             <%= f.submit "Friend Request", :method => "post" %>
+             <% end %></td>
           </tr>
         <% end %>
       </table>

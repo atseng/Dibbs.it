@@ -2,8 +2,10 @@ class Friendship < ActiveRecord::Base
   validates_presence_of :user, :friend, :status
 
   belongs_to :user
+
   belongs_to :friend,
-    class_name: "User"
+    class_name: "User",
+    :foreign_key => "user_id"
 
   belongs_to :friend,
     :class_name => "User",

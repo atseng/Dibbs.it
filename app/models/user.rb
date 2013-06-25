@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
     :conditions => "status = 'accepted'"
 
   has_many :pending_friends,
-    :through => "Friendship",
+    :through => :friendships,
+    :source => :friend,
     :conditions => "status = 'pending'",
     :order => :created_at
 
@@ -27,7 +28,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :friends, :friendships, :pending_friends
   # attr_accessible :title, :body
 
   has_many :items,

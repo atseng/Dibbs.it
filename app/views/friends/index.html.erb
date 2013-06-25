@@ -1,0 +1,9 @@
+My Friends:
+<% unless @user == current_user %>
+  You do not have permission to access this page!
+<% else %>
+  Current Friends:
+    <%= render 'friends' %>
+  Pending Friends:
+    <%= render 'pending_friends'  %>
+<% end %>

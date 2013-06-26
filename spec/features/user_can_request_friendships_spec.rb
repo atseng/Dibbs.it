@@ -28,7 +28,6 @@ describe 'User can request a friendship' do %q{
     it'can accept a friend request' do
       sign_in(user)
       visit user_friendships_path(user)
-      save_and_open_page
       click_link "Accept"
       expect(page).to have_content("New Friend")
     end

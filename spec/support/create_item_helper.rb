@@ -1,7 +1,7 @@
 module CreateItemHelper
 
   def create_item(item)
-    visit new_item_path
+    visit new_user_item_path(user)
     fill_in "Name", with: item.name
     fill_in "Description", with: item.description
     fill_in "Value", with: item.value

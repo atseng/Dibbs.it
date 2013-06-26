@@ -1,20 +1,22 @@
 class ItemsController < ApplicationController
-before_filter :authenticate_user!, :only => [:new, :create, :edit, :destroy]
+before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
 
   def index
     @items = Item.all
   end
 
   def new
-    @item = Item.new
+    @user = current_user
+    @item = @user.items.new
   end
 
   def create
-    @item = Item.new(params[:item])
+    @user = current_user
+    @item = @user.items.new(params[:item])
 
     if @item.save
       flash[:notice] = "Item created"
-      redirect_to user_items_path(current_user)
+      redirect_to edit_user_path(current_user)
     else
       render "new"
     end
@@ -22,29 +24,29 @@ before_filter :authenticate_user!, :only => [:new, :create, :edit, :destroy]
 
   def edit
     @user = User.find(params[:user_id])
-    @item = Item.find(params[:id])
+    @item = @user.items.find(params[:id])
   end
 
   def update
     @user = User.find(params[:user_id])
-    @item = Item.find(params[:id])
+    @item = @user.items.find(params[:id])
 
     if @item.update_attributes(params[:user_id => current_user, :id => @item])
-      redirect_to user_items_path(current_user), notice: "Successfully updated item."
+      redirect_to edit_user_path(current_user), notice: "Successfully updated item."
     else
       render "edit", flash[:notice] = "Error. Item not updated."
     end
   end
 
   def show
-     @item = Item.find(params[:id])
+     @item = @user.items.find(params[:id])
   end
 
   def destroy
-    @item = Item.find(params[:id])
+    @item = @user.items.find(params[:id])
     @item.destroy
 
-    redirect_to user_items_path(current_user), notice: "Successfully deleted item."
+    redirect_to edit_user_path(current_user), notice: "Successfully deleted item."
   end
 
 

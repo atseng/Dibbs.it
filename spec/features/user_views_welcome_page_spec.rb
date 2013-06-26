@@ -31,7 +31,8 @@ describe 'a user visting the welcome page' do %q{
   describe 'visitor can sign up ' do
     it 'displays sign up for visitors who are not valid users' do
       visit root_path
-      expect(page).to have_link('Sign up now')
+      expect(current_path).to eq(new_user_session_path)
+      expect(page).to have_link('Sign up')
     end
   end
 
@@ -77,7 +78,7 @@ describe 'a user visting the welcome page' do %q{
       click_button "Sign in"
       expect(page).to have_content("My Items")
       click_link "Sign out"
-      expect(page).to have_content("Signed out successfully.")
+      expect(page).to have_content("Sign in")
     end
   end
 

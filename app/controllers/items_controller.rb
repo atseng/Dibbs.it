@@ -24,7 +24,7 @@ before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :des
 
   def edit
     @user = User.find(params[:user_id])
-    @item = @user.items.find(params[:id])
+    @item = current_user.items.find(params[:id])
   end
 
   def update
@@ -39,11 +39,11 @@ before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :des
   end
 
   def show
-     @item = @user.items.find(params[:id])
+     @item = current_user.items.find(params[:id])
   end
 
   def destroy
-    @item = @user.items.find(params[:id])
+    @item = current_user.items.find(params[:id])
     @item.destroy
 
     redirect_to edit_user_path(current_user), notice: "Successfully deleted item."

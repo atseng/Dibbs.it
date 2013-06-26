@@ -44,8 +44,7 @@ describe 'User can upload an object' do %q{
     it "should display a list of valid items" do
       sign_in(user)
       create_item(item)
-
-      expect(page).to have_content("")
+      expect(page).to have_content("Skip it")
     end
   end
 

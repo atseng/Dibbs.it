@@ -7,12 +7,11 @@
 <br/>
     <%= f.submit "Sign in" %> <br />
     <%= link_to "Forgot your password?", new_password_path('user')  %> <br/>
-    <%= link_to "Sign up now", new_user_registration_path %>
+    <%= link_to "Sign up", new_user_registration_path %>
   <% end %>
   <% else %>
 
   <li><%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
-
   <li><%= link_to "Add Item", new_user_item_path(current_user) %></li>
   <li><%= link_to "Find Friends", users_path %></li>
   <li><%= link_to "My Friendships", user_friendships_path(current_user) %></li>
@@ -21,7 +20,29 @@
 
 
   <h1> My Items </h1>
-
+    <div class="span12">
+      <table class= "table">
+        <tr>
+          <th>Avatar</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Value</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      <% @items.each do |item| %>
+        <tr>
+          <td></td>
+          <td><%= item.name %></td>
+          <td><%= item.description %></td>
+          <td><%= item.value %></td>
+          <td><%= link_to 'Edit', edit_user_item_path(:user_id => current_user, :id => item.id), method: :get %></td>
+          <td><%= link_to 'Destroy', user_item_path(:user_id => current_user, :id => item.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
 
 
 

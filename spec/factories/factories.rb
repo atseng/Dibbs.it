@@ -15,8 +15,12 @@ FactoryGirl.define do
     value '15'
   end
 
-  factory :friendship do
-  end
+  # factory :friendship do
+  #   user 'Lin'
+  #   friend 'Allen'
+  #   status 'accepted'
+
+  # end
 
 
 

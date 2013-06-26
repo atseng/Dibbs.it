@@ -15,7 +15,7 @@ describe 'User can request a friendship' do %q{
 
   describe 'User can make a friend request' do
   let(:user) {FactoryGirl.create(:user)}
-    it 'creates a friend request' do
+    it 'creates a pending friend request' do
       sign_in(user)
       visit users_path
       click_button "Friend Request"
@@ -23,12 +23,13 @@ describe 'User can request a friendship' do %q{
     end
   end
 
-  describe 'User cannot friend themself' do
+  describe 'User can accept friend request' do
   let(:user) {FactoryGirl.create(:user)}
-    it'prevents user from creating a friend request' do
+    it'can accept a friend request' do
       sign_in(user)
       visit user_friendships_path(user)
-      click_button "Accept"
+      save_and_open_page
+      click_link "Accept"
       expect(page).to have_content("New Friend")
     end
   end

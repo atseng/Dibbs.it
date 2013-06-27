@@ -3,8 +3,8 @@ require 'spec_helper'
 FactoryGirl.define do
 
   factory :user do
-    name 'Mos Def'
-    email 'boogeymusic@jazz.com'
+    sequence(:name) {|n| "tinydancer#{n}"}
+    sequence(:email) {|n| "person#{n}@example.com" }
     password 'northern_soul'
     password_confirmation 'northern_soul'
   end
@@ -15,6 +15,7 @@ FactoryGirl.define do
     value '15'
   end
 
+
   # factory :friendship do
   #   user 'Lin'
   #   friend 'Allen'
@@ -22,7 +23,19 @@ FactoryGirl.define do
 
   # end
 
+  factory :user1, class: 'User' do
+    name 'Bert'
+    email 'Bert@seasame.st'
+    password 'Bigbirdyo'
+    password_confirmation 'Bigbirdyo'
+  end
 
+  factory :user2, class: 'User' do
+    name 'Ernie'
+    email 'Ernie@blah.com'
+    password 'CountDrac'
+    password_confirmation 'CountDrac'
+  end
 
 
 

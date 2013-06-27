@@ -1,3 +1,8 @@
+<li><%= link_to 'My Items', edit_user_path(current_user) %></li>
+<li><%= link_to "Find Friends", users_path %></li>
+<li><%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
+
+
 My Friends:
 <% unless @user == current_user %>
   You do not have permission to access this page!
@@ -7,3 +12,5 @@ My Friends:
   Pending Friends:
     <%= render 'pending_friends'  %>
 <% end %>
+
+<%= debug(params) if Rails.env.development? %>

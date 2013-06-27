@@ -11,9 +11,9 @@ describe User do
       it { should have_many(:friendships).dependent(:destroy) }
       it { should have_many(:friends).through(:friendships) }
       it { should have_many(:pending_friends).through(:friendships)}
-      it { should have_many(:inverse_friendships) }
-      it { should have_many(:inverse_friends).through(:inverse_friendships) }
-      it { should have_many(:inverse_pending_friends).through(:inverse_friendships)}
+      # it { should have_many(:inverse_friendships) }
+      # it { should have_many(:inverse_friends).through(:inverse_friendships) }
+      # it { should have_many(:inverse_pending_friends).through(:inverse_friendships)}
     end
   end
 

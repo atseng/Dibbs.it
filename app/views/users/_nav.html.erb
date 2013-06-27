@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <div id = "nav-container">
+    <div id = "nav">
+      <ul>
+        <li><%= link_to "Add Item", new_user_item_path(current_user) %></li>
+        <li><%= link_to "Find Friends", users_path %></li>
+        <li><%= link_to "My Friendships", user_friendships_path(current_user) %></li>
+        <li><%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
+      </ul>
+    </div>
+  <% else %>
+  </div>
+<% end %>

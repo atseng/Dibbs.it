@@ -35,7 +35,6 @@ class FriendsController < ApplicationController
 
     if @friendship1.update_attributes(params[:friendship1]) && @friendship2.update_attributes(params[:friendship2])
       flash[:notice] = "Friend request accepted"
-      binding.pry
       redirect_to edit_user_path(current_user)
     else
       redirect_to users_path(current_user)

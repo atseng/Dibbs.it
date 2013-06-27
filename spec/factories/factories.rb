@@ -16,12 +16,11 @@ FactoryGirl.define do
   end
 
 
-  # factory :friendship do
-  #   user 'Lin'
-  #   friend 'Allen'
-  #   status 'accepted'
-
-  # end
+  factory :friendship do
+    association :user
+    association :friend, factory: :user
+    status 'accepted'
+  end
 
   factory :user1, class: 'User' do
     name 'Bert'

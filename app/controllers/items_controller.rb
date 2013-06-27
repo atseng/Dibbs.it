@@ -31,7 +31,7 @@ before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :des
     @user = User.find(params[:user_id])
     @item = @user.items.find(params[:id])
 
-    if @item.update_attributes(params[:user_id => current_user, :id => @item])
+    if @item.update_attributes(params[:item])
       redirect_to edit_user_path(current_user), notice: "Successfully updated item."
     else
       render "edit", flash[:notice] = "Error. Item not updated."

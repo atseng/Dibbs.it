@@ -64,18 +64,18 @@ describe User do
 
   end
 
-  # describe "friends" do
+  describe "friends" do
 
-  #   # it "creates a self-referential association between two users" do
-  #   #   friendship = FactoryGirl.create(:friendship)
+    it "creates a self-referential association between two users" do
+      friendship = FactoryGirl.create(:friendship)
 
-  #   #   user1 = friendship.user
-  #   #   user2 = friendship.friend
+      user1 = friendship.user
+      user2 = friendship.friend
 
-  #   #   expect(user1.all_friends).to include user2
-  #   #   expect(user2.all_friends).to include user1
-  #   # end
+      expect(user1.friends).to include user2
+      expect(user2.friends).to include user1
+    end
 
-  # end
+  end
 
 end

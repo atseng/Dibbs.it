@@ -28,6 +28,7 @@ describe 'User can edit an object' do %q{
      fill_in 'Description', with: "Most awesome 90s toy ever."
      click_button 'Edit Item'
      expect(page).to have_content("Successfully updated item.")
+     expect(page).to have_content("Most awesome 90s toy ever.")
     end
   end
 

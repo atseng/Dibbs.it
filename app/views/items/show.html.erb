@@ -11,7 +11,14 @@
     <td><%= @item.name %></td>
     <td><%= @item.description %></td>
     <td><%= @item.value %></td>
-    <td><%= form_for [@item, @item.loans.build] do |f| %><%= f.submit "Dibbs" %><% end %></td>
+    <td><%= form_for [@item, @item.loans.build] do |f| %>
+        <% if @item.loans.find_by_state("loaned") %>
+             <%= "Loaned" %>
+          <% else %>
+            <%= f.submit "Dibbs" %>
+        <% end %>
+      <% end %>
+      </td>
   </tr>
 </table>
 

@@ -3,8 +3,13 @@ require 'spec_helper'
 describe Item do
 
   describe "associations" do
-   it { should belong_to(:user) }
-   it { should respond_to(:user_id) }
+    context "user" do
+     it { should belong_to(:user) }
+     it { should respond_to(:user_id) }
+   end
+
+    context "loan" do
+    end
   end
 
   describe "properties" do

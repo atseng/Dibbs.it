@@ -1,11 +1,11 @@
 <% unless @user.friends.empty? %>
-<% @user.friends.each do |friend| %>
-<%= link_to friend.name, user_path(friend.id) %>
+  <% @user.friends.each do |friend| %>
+  <%= link_to friend.name, user_path(friend.id) %>
 
 <% if @user = current_user %>
-<%= link_to '[Remove]', user_friendship_path(:user_id => current_user, :id => friend.id), :method => :delete, :confirm => 'Are you sure?' %>
+  <%= link_to '[Remove]', user_friendship_path(:user_id => current_user, :id => friend.id), :method => :delete, :confirm => 'Are you sure?' %>
 <% end %>
 <% end %>
 <% else %>
-None
+  None
 <% end %>

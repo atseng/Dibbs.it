@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
-before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    @user = User.find(params[:user_id])
+    @items = @user.items
   end
 
   def new
@@ -39,7 +40,8 @@ before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :des
   end
 
   def show
-     @item = current_user.items.find(params[:id])
+     @user = User.find(params[:user_id])
+     @item = @user.items.find(params[:id])
   end
 
   def destroy

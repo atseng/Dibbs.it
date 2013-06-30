@@ -13,8 +13,8 @@ FactoryGirl.define do
     name 'Skip it'
     description '90s skipping toy'
     value '15'
+    association :user
   end
-
 
   factory :friendship do
     association :user

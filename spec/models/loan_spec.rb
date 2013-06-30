@@ -10,6 +10,9 @@ describe Loan do
   end
 
   describe "associations" do
+    context "user" do
+      it { should belong_to(:item) }
+    end
   end
 
 

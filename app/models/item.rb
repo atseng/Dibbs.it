@@ -4,6 +4,9 @@ class Item < ActiveRecord::Base
     foreign_key: :user_id,
     inverse_of: :items
 
+  has_many :loans,
+    dependent: :destroy
+
   validates_presence_of :name
   validates_presence_of :description
   validates_presence_of :value

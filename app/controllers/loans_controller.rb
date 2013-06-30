@@ -23,5 +23,5 @@ class LoansController < ApplicationController
 
 
 
-  end
+
 end

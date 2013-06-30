@@ -13,6 +13,6 @@ describe 'a user trades items' do
     visit user_items_path(friend)
     click_on item.name
     click_on "Dibbs"
-    expect(page).to have_content "Borrow Item"
+    expect(page).to have_content "You got Dibbs Next"
   end
 end

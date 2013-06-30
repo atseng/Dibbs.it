@@ -19,14 +19,6 @@ class User < ActiveRecord::Base
     :conditions => "status = 'pending'",
     :order => :created_at
 
-  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
-  has_many :inverse_friends, :through => :inverse_friendships, :source => :user, :conditions => "status = 'accepted'"
-  has_many :inverse_pending_friends, :through => :inverse_friendships, :source => :friend, :conditions => "status ='pending'"
-
-  def all_friends
-    @all_friends ||= friends + inverse_friends
-  end
-
   validates_presence_of :name
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

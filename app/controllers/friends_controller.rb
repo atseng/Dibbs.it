@@ -35,7 +35,7 @@ class FriendsController < ApplicationController
 
     if @friendship1.update_attributes(params[:friendship1]) && @friendship2.update_attributes(params[:friendship2])
       flash[:notice] = "Friend request accepted"
-      redirect_to edit_user_path(current_user)
+      redirect_to user_friendships_path(current_user)
     else
       redirect_to users_path(current_user)
     end
@@ -50,26 +50,7 @@ class FriendsController < ApplicationController
     @friendship1 = Friendship.find(current_user.friendships[0]).destroy
     @friendship2 = Friendship.find(@friend.friendships[0]).destroy
     flash[:notice] = "Friend request removed"
-    redirect_to edit_user_path(current_user)
+    redirect_to user_friendships_path(current_user)
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 end

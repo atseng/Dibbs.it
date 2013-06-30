@@ -11,9 +11,7 @@ describe User do
       it { should have_many(:friendships).dependent(:destroy) }
       it { should have_many(:friends).through(:friendships) }
       it { should have_many(:pending_friends).through(:friendships)}
-      it { should have_many(:inverse_friendships) }
-      it { should have_many(:inverse_friends).through(:inverse_friendships) }
-      it { should have_many(:inverse_pending_friends).through(:inverse_friendships)}
+      it { should have_many(:requested_friends).through(:friendships)}
     end
   end
 
@@ -73,7 +71,7 @@ describe User do
       user2 = friendship1.friend
 
       expect(user1.friends).to include user2
-      expect(user2.inverse_friends).to include user1
+      expect(user2.friends).to include user1
     end
 
   end

@@ -22,6 +22,12 @@ FactoryGirl.define do
     status 'accepted'
   end
 
+  factory :friendship1, class: 'Friendship' do
+    association :user
+    association :friend, factory: :user
+    status 'accepted'
+  end
+
   factory :user1, class: 'User' do
     name 'Bert'
     email 'Bert@seasame.st'

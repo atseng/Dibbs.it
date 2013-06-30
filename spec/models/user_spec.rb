@@ -70,8 +70,7 @@ describe User do
       user1 = friendship1.user
       user2 = friendship1.friend
 
-      expect(user1.friends).to include user2
-      expect(user2.friends).to include user1
+      expect(user1.friends).to include(user2)
     end
 
   end

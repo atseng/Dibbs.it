@@ -28,7 +28,7 @@ describe 'User can request a friendship' do %q{
       visit user_friendships_path(friend2)
       click_link "[Accept]"
       expect(page).to have_content("Friend request accepted")
-
+      expect(page).to have_content("My Friends: Bert")
     end
   end
 
@@ -52,7 +52,15 @@ describe 'User can request a friendship' do %q{
   describe 'User can view pending friendships' do
   let!(:friend1) {FactoryGirl.create(:user1)}
   let!(:friend2) {FactoryGirl.create(:user2)}
-    it 'views a list of pending friendships' do
+    it 'views pending friendships' do
+      sign_in(friend1)
+      visit users_path
+      click_button "Friend Request"
+      click_link "Sign out"
+
+      sign_in(friend2)
+      visit user_friendships_path(friend2)
+      expect(page).to have_content("Pending Friendships: Bert")
 
     end
   end
@@ -60,8 +68,12 @@ describe 'User can request a friendship' do %q{
   describe 'User can view requested friendships' do
   let!(:friend1) {FactoryGirl.create(:user1)}
   let!(:friend2) {FactoryGirl.create(:user2)}
-    it 'views a list of requested friendships' do
-
+    it 'views requested friendships' do
+      sign_in(friend1)
+      visit users_path
+      click_button "Friend Request"
+      visit user_friendships_path(friend1)
+      expect(page).to have_content("Friendship Requests: Ernie")
     end
   end
 

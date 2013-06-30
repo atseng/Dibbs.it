@@ -43,7 +43,7 @@ describe 'User can request a friendship' do %q{
 
       sign_in(friend2)
       visit user_friendships_path(friend2)
-      click_link "[Remove]"
+      click_link "[Reject]"
       expect(page).to have_content("Friend request removed")
     end
   end

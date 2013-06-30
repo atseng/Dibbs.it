@@ -3,8 +3,13 @@ class Loan < ActiveRecord::Base
   belongs_to :item
 
   belongs_to :owner,
-    foreign_key: :owner_id,
-    inverse_of: :loans
+    :class_name => "User",
+    foreign_key: :owner_id
+
+  has_many :borrowers,
+    :class_name => "User",
+    foreign_key: :borrower_id
+
 
   validates_presence_of :item_id
   validates_presence_of :borrower_id

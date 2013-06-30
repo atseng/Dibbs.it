@@ -11,6 +11,7 @@ describe 'User can request a friendship' do %q{
   * User can reject a friendship
   * User can view pending friendships
   * User can view requested friendships
+  * User can unfriend a person
 
 }
 
@@ -77,7 +78,21 @@ describe 'User can request a friendship' do %q{
     end
   end
 
+  describe 'User can reject a friend request' do
+  let!(:friend1) {FactoryGirl.create(:user1)}
+  let!(:friend2) {FactoryGirl.create(:user2)}
+    it 'removes a friend request' do
+      sign_in(friend1)
+      visit users_path
+      click_button "Friend Request"
+      click_link "Sign out"
 
-
-
+      sign_in(friend2)
+      visit user_friendships_path(friend2)
+      click_link "[Accept]"
+      click_link "[Unfriend]"
+      save_and_open_page
+      expect(page).to have_content("My Friends: None")
+    end
+  end
 end

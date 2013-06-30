@@ -91,7 +91,6 @@ describe 'User can request a friendship' do %q{
       visit user_friendships_path(friend2)
       click_link "[Accept]"
       click_link "[Unfriend]"
-      save_and_open_page
       expect(page).to have_content("My Friends: None")
     end
   end

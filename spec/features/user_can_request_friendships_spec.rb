@@ -7,9 +7,10 @@ describe 'User can request a friendship' do %q{
   So I can call dibbs on their items for lending
 
   AC
-  * I can ask a user to be my friend from their profile
-  * The user can accept my friend request
-  * I'm notified when a user accepts my friend request
+  * User can create a friendship
+  * User can reject a friendship
+  * User can view pending friendships
+  * User can view requested friendships
 
 }
 
@@ -47,6 +48,24 @@ describe 'User can request a friendship' do %q{
       expect(page).to have_content("Friend request removed")
     end
   end
+
+  describe 'User can view pending friendships' do
+  let!(:friend1) {FactoryGirl.create(:user1)}
+  let!(:friend2) {FactoryGirl.create(:user2)}
+    it 'views a list of pending friendships' do
+
+    end
+  end
+
+  describe 'User can view requested friendships' do
+  let!(:friend1) {FactoryGirl.create(:user1)}
+  let!(:friend2) {FactoryGirl.create(:user2)}
+    it 'views a list of requested friendships' do
+
+    end
+  end
+
+
 
 
 end

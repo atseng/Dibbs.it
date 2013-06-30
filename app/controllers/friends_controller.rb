@@ -12,7 +12,7 @@ class FriendsController < ApplicationController
   def create
     @user = User.find(current_user)
     @friend = User.find(params[:friend_id])
-    params[:friendship1] = {:user_id => @user.id, :friend_id => @friend.id, :status => 'pending'}
+    params[:friendship1] = {:user_id => @user.id, :friend_id => @friend.id, :status => 'requested'}
     params[:friendship2] = {:user_id => @friend.id, :friend_id => @user.id, :status => 'pending'}
     @friendship1 = Friendship.create(params[:friendship1])
     @friendship2 = Friendship.create(params[:friendship2])
@@ -44,7 +44,7 @@ class FriendsController < ApplicationController
   def destroy
     @user = User.find(current_user)
     @friend = User.find(params[:id])
-    params[:friendship1] = {:user_id => @user.id, :friend_id => @friend.id, :status => 'pending'}
+    params[:friendship1] = {:user_id => @user.id, :friend_id => @friend.id, :status => 'requested'}
     params[:friendship2] = {:user_id => @friend.id, :friend_id => @user.id, :status => 'pending'}
 
     @friendship1 = Friendship.find(current_user.friendships[0]).destroy

@@ -4,12 +4,14 @@
 
 
 My Friends:
-<% unless @user == current_user %>
+<% unless @user == current_user || current_user.requested_friends.include?(@user) || current_user.friends.include?(@user) || current_user.pending_friends.include?(@user) %>
   You do not have permission to access this page!
 <% else %>
-  Current Friends:
+  Friends:
     <%= render 'friends' %>
-  Pending Friends:
+  Friendship Requests:
+    <%= render 'requested_friends' %>
+  Pending Friendships:
     <%= render 'pending_friends'  %>
 <% end %>
 

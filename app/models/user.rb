@@ -3,6 +3,12 @@ class User < ActiveRecord::Base
   has_many :friendships,
     :dependent => :destroy
 
+  has_many :requested_friends,
+    :through => :friendships,
+    :source => :friend,
+    :conditions => "status = 'requested'",
+    :order => :created_at
+
   has_many :friends,
     :through => :friendships,
     :conditions => "status = 'accepted'"

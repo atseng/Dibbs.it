@@ -11,13 +11,15 @@ class LoansController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
     @loan = @item.loans.build
-    @loan.owner = current_user
+    @loan.owner = @item.user
+    @loan.borrower = current_user
 
     if @loan.save
-      flash[:notice] = "Loan successfully created"
-      redirect_to edit_user_path(current_user)
+      redirect_to user_items_path(@loan.owner)
+      flash[:notice] = "Borrow Item"
     else
-      render "new"
+      redirect_to user_items_path(@loan.borrower)
+      flash[:notice] = "Error. Item unavailable"
     end
   end
 

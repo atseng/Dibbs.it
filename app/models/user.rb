@@ -31,6 +31,12 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :items,
-    :dependent => :destroy,
-    foreign_key: :user_id
+    :dependent => :destroy
+
+  has_many :borrowers,
+    :dependent => :destroy
+
+  has_many :owners,
+    :dependent => :destroy
+
 end

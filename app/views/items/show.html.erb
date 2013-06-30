@@ -1,5 +1,19 @@
-<%= form_for [@item, @item.loans.build] do |f| %>
-  <%= f.submit "Initiate Loan" %>
-<% end %>
+<table class= "table">
+  <tr>
+    <th>Avatar</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Value</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><%= @item.avatar %></td>
+    <td><%= @item.name %></td>
+    <td><%= @item.description %></td>
+    <td><%= @item.value %></td>
+    <td><%= form_for [@item, @item.loans.build] do |f| %><%= f.submit "Dibbs" %><% end %></td>
+  </tr>
+</table>
+
 
 <%= debug(params) if Rails.env.development? %>

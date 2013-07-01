@@ -3,6 +3,12 @@ class User < ActiveRecord::Base
   has_many :friendships,
     :dependent => :destroy
 
+  has_many :requested_friends,
+    :through => :friendships,
+    :source => :friend,
+    :conditions => "status = 'requested'",
+    :order => :created_at
+
   has_many :friends,
     :through => :friendships,
     :conditions => "status = 'accepted'"
@@ -12,14 +18,6 @@ class User < ActiveRecord::Base
     :source => :friend,
     :conditions => "status = 'pending'",
     :order => :created_at
-
-  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
-  has_many :inverse_friends, :through => :inverse_friendships, :source => :user, :conditions => "status = 'accepted'"
-  has_many :inverse_pending_friends, :through => :inverse_friendships, :source => :friend, :conditions => "status ='pending'"
-
-  def all_friends
-    @all_friends ||= friends + inverse_friends
-  end
 
   validates_presence_of :name
   # Include default devise modules. Others available are:
@@ -33,6 +31,12 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :items,
-    :dependent => :destroy,
-    foreign_key: :user_id
+    :dependent => :destroy
+
+  has_many :borrowers,
+    :dependent => :destroy
+
+  has_many :owners,
+    :dependent => :destroy
+
 end

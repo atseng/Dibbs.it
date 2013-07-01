@@ -12,7 +12,7 @@ class FriendsController < ApplicationController
   def create
     @user = User.find(current_user)
     @friend = User.find(params[:friend_id])
-    params[:friendship1] = {:user_id => @user.id, :friend_id => @friend.id, :status => 'pending'}
+    params[:friendship1] = {:user_id => @user.id, :friend_id => @friend.id, :status => 'requested'}
     params[:friendship2] = {:user_id => @friend.id, :friend_id => @user.id, :status => 'pending'}
     @friendship1 = Friendship.create(params[:friendship1])
     @friendship2 = Friendship.create(params[:friendship2])
@@ -35,30 +35,22 @@ class FriendsController < ApplicationController
 
     if @friendship1.update_attributes(params[:friendship1]) && @friendship2.update_attributes(params[:friendship2])
       flash[:notice] = "Friend request accepted"
-      binding.pry
-      redirect_to edit_user_path(current_user)
+      redirect_to user_friendships_path(current_user)
     else
       redirect_to users_path(current_user)
     end
   end
 
+  def destroy
+    @user = User.find(current_user)
+    @friend = User.find(params[:id])
+    params[:friendship1] = {:user_id => @user.id, :friend_id => @friend.id, :status => 'requested'}
+    params[:friendship2] = {:user_id => @friend.id, :friend_id => @user.id, :status => 'pending'}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @friendship1 = Friendship.find(current_user.friendships[0]).destroy
+    @friendship2 = Friendship.find(@friend.friendships[0]).destroy
+    flash[:notice] = "Friend request removed"
+    redirect_to user_friendships_path(current_user)
+  end
 
 end

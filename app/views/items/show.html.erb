@@ -1,1 +1,26 @@
+<table class= "table">
+  <tr>
+    <th>Avatar</th>
+    <th>Item</th>
+    <th>Comments</th>
+    <th>Value</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><%= @item.avatar %></td>
+    <td><%= @item.name %></td>
+    <td><%= @item.description %></td>
+    <td><%= @item.value %></td>
+    <td><%= form_for [@item, @item.loans.build] do |f| %>
+        <% if @item.loans.find_by_state("loaned") %>
+             <%= "Loaned" %>
+          <% else %>
+            <%= f.submit "Dibbs" %>
+        <% end %>
+      <% end %>
+      </td>
+  </tr>
+</table>
+
+
 <%= debug(params) if Rails.env.development? %>

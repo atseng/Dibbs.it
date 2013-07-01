@@ -3,14 +3,17 @@
 <li><%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
 
 
-My Friends:
-<% unless @user == current_user %>
+<% unless @user == current_user || current_user.requested_friends.include?(@user) || current_user.friends.include?(@user) || current_user.pending_friends.include?(@user) %>
   You do not have permission to access this page!
 <% else %>
-  Current Friends:
+
+  My Friends:
     <%= render 'friends' %>
-  Pending Friends:
+  Friendship Requests:
+    <%= render 'requested_friends' %>
+  Pending Friendships:
     <%= render 'pending_friends'  %>
+
 <% end %>
 
 <%= debug(params) if Rails.env.development? %>

@@ -4,10 +4,12 @@ Dibbs::Application.routes.draw do
 
   resources :users, except: [:show]
 
-  resources :items, only: [:show]
+  resources :items, only: [] do
+    resources :loans, only: [:create]
+  end
 
   resources :users, only: [:show] do
-    resources :items, only: [ :new, :create, :index, :edit, :update, :destroy]
+    resources :items
     resources :friendships, only: [:index, :create, :update, :destroy], controller: "friends"
   end
 

@@ -24,16 +24,14 @@
           <th>Comments</th>
           <th>Value</th>
           <th></th>
-          <th></th>
         </tr>
       <% @items.each do |item| %>
         <tr>
           <td></td>
-          <td><%= item.name %></td>
+          <td><%= link_to item.name, edit_user_item_path(:user_id => current_user, :id => item.id), method: :get  %></td>
           <td><%= item.category %></td>
           <td><%= item.description %></td>
           <td><%= item.value %></td>
-          <td><%= link_to 'Edit', edit_user_item_path(:user_id => current_user, :id => item.id), method: :get %></td>
           <td><%= link_to 'Destroy', user_item_path(:user_id => current_user, :id => item.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>

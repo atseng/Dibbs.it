@@ -44,25 +44,4 @@ describe 'User can edit an object' do %q{
      expect(page).to have_content("Successfully deleted item.")
     end
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end

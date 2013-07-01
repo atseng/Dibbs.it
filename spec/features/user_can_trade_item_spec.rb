@@ -29,7 +29,7 @@ describe 'User can trade items' do %q{
       visit user_items_path(friend)
       click_on item.name
       click_on "Dibbs"
-      expect(page).to have_content "You got Dibbs Next"
+      expect(page).to have_content "Dibbs"
     end
   end
 

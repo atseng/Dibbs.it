@@ -42,6 +42,10 @@ FactoryGirl.define do
     password_confirmation 'CountDrac'
   end
 
-
-
+  factory :loan do
+    association :item
+    association :owner, factory: :friend
+    association :borrower, factory: :user
+    state 'loaned'
+  end
 end

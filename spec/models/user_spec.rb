@@ -11,9 +11,7 @@ describe User do
       it { should have_many(:friendships).dependent(:destroy) }
       it { should have_many(:friends).through(:friendships) }
       it { should have_many(:pending_friends).through(:friendships)}
-      it { should have_many(:inverse_friendships) }
-      it { should have_many(:inverse_friends).through(:inverse_friendships) }
-      it { should have_many(:inverse_pending_friends).through(:inverse_friendships)}
+      it { should have_many(:requested_friends).through(:friendships)}
     end
   end
 
@@ -64,18 +62,17 @@ describe User do
 
   end
 
-  # describe "friends" do
+  describe "friends" do
 
-  #   # it "creates a self-referential association between two users" do
-  #   #   friendship = FactoryGirl.create(:friendship)
+    it "creates a self-referential association between two users" do
+      friendship1 = FactoryGirl.create(:friendship)
 
-  #   #   user1 = friendship.user
-  #   #   user2 = friendship.friend
+      user1 = friendship1.user
+      user2 = friendship1.friend
 
-  #   #   expect(user1.all_friends).to include user2
-  #   #   expect(user2.all_friends).to include user1
-  #   # end
+      expect(user1.friends).to include(user2)
+    end
 
-  # end
+  end
 
 end

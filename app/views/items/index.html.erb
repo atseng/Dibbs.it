@@ -4,8 +4,8 @@
             <table class= "table">
               <tr>
                 <th>Avatar</th>
-                <th>Name</th>
-                <th>Description</th>
+                <th>Item</th>
+                <th>Comments</th>
                 <th>Value</th>
                 <th></th>
                 <th></th>
@@ -14,7 +14,7 @@
             <% @items.each do |item| %>
               <tr>
                 <td></td>
-                <td><%= item.name %></td>
+                <td><%= link_to item.name, user_item_path(@user, item) %></td>
                 <td><%= item.description %></td>
                 <td><%= item.value %></td>
               </tr>

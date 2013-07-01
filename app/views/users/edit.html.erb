@@ -10,24 +10,18 @@
     <%= link_to "Sign up", new_user_registration_path %>
   <% end %>
   <% else %>
-
-  <li><%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
-  <li><%= link_to "Add Item", new_user_item_path(current_user) %></li>
-  <li><%= link_to "Find Friends", users_path %></li>
-  <li><%= link_to "My Friendships", user_friendships_path(current_user) %></li>
-
   <% end %>
 
+  <%= render 'nav' %>
 
   <h1> My Items </h1>
     <div class="span12">
       <table class= "table">
         <tr>
           <th>Avatar</th>
-          <th>Name</th>
-          <th>Description</th>
+          <th>Item</th>
+          <th>Comments</th>
           <th>Value</th>
-          <th></th>
           <th></th>
           <th></th>
         </tr>

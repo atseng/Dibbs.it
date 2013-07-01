@@ -13,15 +13,20 @@ FactoryGirl.define do
     name 'Skip it'
     description '90s skipping toy'
     value '15'
+    association :user
   end
 
+  factory :friendship do
+    association :user
+    association :friend, factory: :user
+    status 'accepted'
+  end
 
-  # factory :friendship do
-  #   user 'Lin'
-  #   friend 'Allen'
-  #   status 'accepted'
-
-  # end
+  factory :friendship1, class: 'Friendship' do
+    association :user
+    association :friend, factory: :user
+    status 'accepted'
+  end
 
   factory :user1, class: 'User' do
     name 'Bert'
@@ -36,13 +41,6 @@ FactoryGirl.define do
     password 'CountDrac'
     password_confirmation 'CountDrac'
   end
-
-
-
-
-
-
-
 
 
 

@@ -5,8 +5,7 @@
               <tr>
                 <th>Avatar</th>
                 <th>Item</th>
-                <th>Comments</th>
-                <th>Value</th>
+                <th>Category</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -15,8 +14,7 @@
               <tr>
                 <td></td>
                 <td><%= link_to item.name, user_item_path(@user, item) %></td>
-                <td><%= item.description %></td>
-                <td><%= item.value %></td>
+                <td><%= item.category %></td>
               </tr>
             <% end %>
             </table>

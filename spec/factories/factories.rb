@@ -11,6 +11,7 @@ FactoryGirl.define do
 
   factory :item do
     name 'Skip it'
+    category 'misc'
     description '90s skipping toy'
     value '15'
     association :user

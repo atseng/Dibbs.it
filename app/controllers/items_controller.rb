@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
     @user = current_user
     @item = @user.items.new(params[:item])
 
+
     if @item.save
       flash[:notice] = "Item created"
       redirect_to edit_user_path(current_user)

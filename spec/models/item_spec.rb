@@ -9,23 +9,29 @@ describe Item do
    end
 
     context "loan" do
+      it { should have_many(:loans).dependent(:destroy) }
     end
   end
 
   describe "properties" do
     context "name" do
-      it {should validate_presence_of(:name)}
-      it {should respond_to(:name)}
+      it { should validate_presence_of(:name) }
+      it { should respond_to(:name) }
+    end
+
+    context "category" do
+      it { should validate_presence_of(:category) }
+      it { should respond_to(:category) }
     end
 
     context "description" do
-      it {should validate_presence_of(:description)}
-      it {should respond_to(:description)}
+      it { should validate_presence_of(:description) }
+      it { should respond_to(:description) }
     end
 
     context "value" do
-      it {should validate_presence_of(:value)}
-      it {should respond_to(:value)}
+      it { should validate_presence_of(:value) }
+      it { should respond_to(:value) }
     end
 
   end

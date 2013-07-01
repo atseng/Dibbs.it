@@ -15,6 +15,10 @@
 <%= f.label :name %>
 <%= f.text_field :name %>
 
+<%= f.label :category %>
+<%  @categories = ["accessories", "books", "clothes", "dvds", "electronics", "music", "sports & outdoors", "tools & gear", "video games", "misc" ] %>
+<%= f.select :category, @categories %>
+
 <%= f.label :description %>
 <%= f.text_field :description %>
 

@@ -21,7 +21,6 @@ describe 'User can trade items' do %q{
     let!(:friendship) { FactoryGirl.create(:friendship) }
     let!(:user) { friendship.user }
     let!(:friend) { friendship.friend }
-
     let!(:item) { FactoryGirl.create(:item, user: friend) }
 
     it 'user initiates a loan' do
@@ -37,7 +36,6 @@ describe 'User can trade items' do %q{
     let!(:friendship) { FactoryGirl.create(:friendship) }
     let!(:user) { friendship.user }
     let!(:friend) { friendship.friend }
-
     let!(:item) { FactoryGirl.create(:item, user: friend) }
 
     it 'displays a loaned status' do

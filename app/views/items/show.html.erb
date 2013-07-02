@@ -1,14 +1,17 @@
+<%= render 'nav' %>
 <table class= "table">
   <tr>
     <th>Avatar</th>
     <th>Item</th>
+    <th>Category</th>
     <th>Comments</th>
     <th>Value</th>
-    <th></th>
+    <th>Status</th>
   </tr>
   <tr>
     <td><%= @item.avatar %></td>
     <td><%= @item.name %></td>
+    <td><%= @item.category %></td>
     <td><%= @item.description %></td>
     <td><%= @item.value %></td>
     <td><%= form_for [@item, @item.loans.build] do |f| %>

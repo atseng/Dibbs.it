@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
-    @items = @user.items
+    @items = current_user.items
   end
 end

@@ -24,6 +24,7 @@ describe 'User can upload an image for an item' do %q{
       fill_in "Value", with: item.value
       click_button "Add Item"
       expect(page).to have_content(item.avatar)
+      expect("/uploads/item/avatar/" + item.id.to_s + "/test.jpg").to be_present
     end
   end
 

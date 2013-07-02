@@ -1,8 +1,9 @@
 module CreateItemHelper
 
   def create_item(item)
-    visit new_user_item_path(user)
+    visit new_item_path(user)
     fill_in "Name", with: item.name
+    select(item.category, :from => "Category")
     fill_in "Description", with: item.description
     fill_in "Value", with: item.value
     click_button "Add Item"

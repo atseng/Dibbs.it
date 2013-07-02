@@ -11,6 +11,7 @@ FactoryGirl.define do
 
   factory :item do
     name 'Skip it'
+    category 'misc'
     description '90s skipping toy'
     value '15'
     association :user
@@ -42,6 +43,10 @@ FactoryGirl.define do
     password_confirmation 'CountDrac'
   end
 
-
-
+  factory :loan do
+    association :item
+    association :owner, factory: :friend
+    association :borrower, factory: :user
+    state 'loaned'
+  end
 end

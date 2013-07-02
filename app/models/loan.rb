@@ -7,9 +7,6 @@ class Loan < ActiveRecord::Base
     end
 
     state :returned do
-      def available?
-        true
-      end
     end
   end
 

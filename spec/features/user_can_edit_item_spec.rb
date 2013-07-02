@@ -23,7 +23,7 @@ describe 'User can edit an object' do %q{
     it 'updates a valid item properties' do
      sign_in(user)
      create_item(item)
-     first(:link, "Edit").click
+     click_link item.name
      fill_in 'Name', with: "Double Skip it"
      fill_in 'Description', with: "Most awesome 90s toy ever."
      click_button 'Edit Item'
@@ -44,25 +44,4 @@ describe 'User can edit an object' do %q{
      expect(page).to have_content("Successfully deleted item.")
     end
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end

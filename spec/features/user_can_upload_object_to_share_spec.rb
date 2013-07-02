@@ -31,7 +31,7 @@ describe 'User can upload an object' do %q{
     it 'creates a invalid item ' do
       sign_in(user)
       item_count = Item.count
-      visit new_user_item_path(user)
+      visit new_item_path(user)
       click_button "Add Item"
       expect(page).to have_content("can't be blank")
       expect(item_count).to eq(Item.count)

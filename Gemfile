@@ -10,7 +10,7 @@ gem 'devise'
 gem 'state_machine'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'fog'
+gem 'fog', '~> 1.3.1'
 
 
 # Gems used only for assets and not required

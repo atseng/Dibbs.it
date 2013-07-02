@@ -33,7 +33,7 @@ item_list = [
   [mike, "nunchucks", "electronics", "woood handles", " ", 75 ],
   [leo, "sai", "dvds", "double sidekicks", " ", 100 ],
   [don, "bo staff", "sports & outdoors", "high jumper", " ", 150 ]
-  [ap, "yellow jumpsuit", "apparel", "mic'd up", " ", 60]
+  [ap, "yellow jumpsuit", "clothes", "mic'd up", " ", 60]
   [cj, "hockey stick", "sports & outdoors", "solid wood oak", " ", 75]
   [shredder, "claw", "accessories", "slice & dice", " ", 1000]
 ]

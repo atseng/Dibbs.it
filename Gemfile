@@ -9,6 +9,7 @@ gem 'pg'
 gem 'devise'
 gem 'state_machine'
 gem 'carrierwave'
+gem 'mini_magick'
 
 
 # Gems used only for assets and not required

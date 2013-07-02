@@ -7,8 +7,11 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @user = current_user
-    @item = @user.items.new
+    if current_user == User.find(params[:user_id])
+      @item = current_user.items.new
+    else
+      redirect_to root_path, :alert => "Unauthorized Access"
+    end
   end
 
   def create
@@ -23,11 +26,19 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = current_user.items.find(params[:id])
+    if current_user == User.find(params[:user_id])
+      @item = current_user.items.find(params[:id])
+    else
+      redirect_to root_path, :alert => "Unauthorized Access"
+    end
   end
 
   def update
-    @item = current_user.items.find(params[:id])
+    if current_user == User.find(params[:user_id])
+      @item = current_user.items.find(params[:id])
+    else
+      redirect_to root_path, :alert => "Unauthorized Access"
+    end
 
     if @item.update_attributes(params[:item])
       redirect_to edit_user_path(current_user), notice: "Successfully updated item."

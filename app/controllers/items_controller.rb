@@ -12,9 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @item = @user.items.new(params[:item])
-
+    @item = current_user.items.new(params[:item])
 
     if @item.save
       flash[:notice] = "Item created"
@@ -25,13 +23,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:user_id])
     @item = current_user.items.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:user_id])
-    @item = @user.items.find(params[:id])
+    @item = current_user.items.find(params[:id])
 
     if @item.update_attributes(params[:item])
       redirect_to edit_user_path(current_user), notice: "Successfully updated item."

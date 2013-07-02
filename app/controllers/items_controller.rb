@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   def index
     @user = User.find(params[:user_id])
@@ -7,11 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    if current_user == User.find(params[:user_id])
-      @item = current_user.items.new
-    else
-      redirect_to root_path, :alert => "Unauthorized Access"
-    end
+    @item = current_user.items.new
   end
 
   def create
@@ -26,19 +22,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if current_user == User.find(params[:user_id])
-      @item = current_user.items.find(params[:id])
-    else
-      redirect_to root_path, :alert => "Unauthorized Access"
-    end
+    @item = current_user.items.find(params[:id])
   end
 
   def update
-    if current_user == User.find(params[:user_id])
-      @item = current_user.items.find(params[:id])
-    else
-      redirect_to root_path, :alert => "Unauthorized Access"
-    end
+    @item = current_user.items.find(params[:id])
 
     if @item.update_attributes(params[:item])
       redirect_to edit_user_path(current_user), notice: "Successfully updated item."
@@ -48,8 +36,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-     @user = User.find(params[:user_id])
-     @item = @user.items.find(params[:id])
+     @item = Item.find(params[:id])
   end
 
   def destroy

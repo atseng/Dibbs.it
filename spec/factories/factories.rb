@@ -7,6 +7,7 @@ FactoryGirl.define do
     sequence(:email) {|n| "person#{n}@example.com" }
     password 'northern_soul'
     password_confirmation 'northern_soul'
+    receives_notifications false
   end
 
   factory :item do
@@ -34,6 +35,7 @@ FactoryGirl.define do
     email 'Bert@seasame.st'
     password 'Bigbirdyo'
     password_confirmation 'Bigbirdyo'
+    receives_notifications false
   end
 
   factory :user2, class: 'User' do
@@ -41,6 +43,7 @@ FactoryGirl.define do
     email 'Ernie@blah.com'
     password 'CountDrac'
     password_confirmation 'CountDrac'
+    receives_notifications false
   end
 
   factory :loan do

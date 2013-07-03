@@ -17,6 +17,8 @@ class LoansController < ApplicationController
     if @loan.save
       redirect_to user_items_path(@loan.owner)
       flash[:notice] = "Dibbs"
+      @messenger = TwilioMessenger.new(@loan.owner)
+      @messenger.send_text("#{@loan.borrower.name} called Dibbs on your #{@item.name}")
     else
       redirect_to user_items_path(@loan.borrower)
       flash[:notice] = "Error. Item unavailable"

@@ -23,6 +23,10 @@ class ItemsController < ApplicationController
 
   def edit
     @item = current_user.items.find(params[:id])
+    unless @item.present?
+      flash[:notice] = "Access Denied"
+      redirect_to edit_user_path(current_user)
+    end
   end
 
   def update

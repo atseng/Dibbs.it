@@ -1,0 +1,28 @@
+<%= search_form_for @search, url: search_path, method: :post do |f| %>
+  <%= f.condition_fields do |c| %>
+    <%= render "condition_fields", f: c %>
+  <% end %>
+  <p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
+  <div class="field">
+    Sort:
+    <%= f.sort_fields do |s| %>
+      <%= s.sort_select %>
+    <% end %>
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+
+<table id="items">
+  <tr>
+    <th><%= sort_link @search, :name, "Item Name" %></th>
+    <th><%= sort_link @search, :category, "Cateogry" %></th>
+    <th><%= sort_link @search, :state, "Status" %></th>
+  </tr>
+<% @items.each do |item| %>
+  <tr>
+    <td><%= link_to(item.name, item) %></td>
+    <td><%= item.category("%B %e, %Y") %></td>
+    <td><%= item.state %></td>
+  </tr>
+<% end %>
+</table>

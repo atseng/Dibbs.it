@@ -1,8 +1,8 @@
 class SearchesController < ApplicationController
 
   def show
-    @search = Item.search(params[:q])
-    @items = @search.result
+    @q = Item.search(params[:q])
+    @items = @q.result(:distinct => true)
   end
 
 

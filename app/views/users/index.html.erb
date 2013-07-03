@@ -2,10 +2,26 @@
   <div class="row">
      <%= render 'nav' %>
     <div class="span12">
+    <div class ="search">
+
+      <%= search_form_for @q do |f| %>
+        <div class ="field">
+          <%= f.label :name_cont, "User Name" %>
+          <%= f.text_field :name_cont %>
+        </div>
+        <div class = "field">
+          <%= f.label :email_start, "User Email" %>
+          <%= f.text_field :email_start %>
+        </div>
+        <div class="actions"><%= f.submit "Search" %></div>
+      <% end %>
+
+    </div>
       <table class= "table">
         <tr>
-          <th>Name</th>
-          <th>Email</th>
+          <th><%= sort_link @q, :name, "Name" %></th>
+          <th><%= sort_link @q, :email,
+          "Email" %></th>
           <th></th>
         </tr>
 

@@ -12,6 +12,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog', '~> 1.3.1'
 gem 'ransack'
+gem 'twilio-ruby'
 
 
 # Gems used only for assets and not required

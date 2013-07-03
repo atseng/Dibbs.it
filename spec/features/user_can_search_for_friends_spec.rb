@@ -12,4 +12,12 @@ describe 'User can search for other users' do %q{
 
 }
 
+  describe 'User searching for a friend' do
+    it 'creates a search by name query' do
+      sign_in(user)
+      visit user_index_path
+
+    end
+  end
+
 end

@@ -10,7 +10,7 @@ FactoryGirl.define do
   end
 
   factory :item do
-    name 'Skip it'
+    sequence(:name) {|n| "Skip it#{n}"}
     category 'misc'
     description '90s skipping toy'
     value '15'

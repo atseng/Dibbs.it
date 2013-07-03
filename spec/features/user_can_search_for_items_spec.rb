@@ -19,7 +19,7 @@ describe 'User can search for items' do %q{
     it 'searches by item name' do
       sign_in(user)
       visit search_path
-      expect(page).to have_content(search.name)
+      expect(page).to have_content()
     end
   end
 

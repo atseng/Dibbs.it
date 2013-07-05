@@ -37,7 +37,7 @@ describe 'a user visting the welcome page' do %q{
   end
 
   describe 'visitor can register as new user' do
-    let(:user) {FactoryGirl.build(:user)}
+    let(:user) { FactoryGirl.build(:user) }
     it 'creates a valid user' do
       visit new_user_registration_path
       fill_in "Name", with: user.name
@@ -58,7 +58,7 @@ describe 'a user visting the welcome page' do %q{
   end
 
   describe 'valid user sign in' do
-    let(:user) {FactoryGirl.create(:user)}
+    let(:user) { FactoryGirl.create(:user) }
     it 'signs in a valid user' do
       visit root_path
       fill_in "Email", with: user.email
@@ -70,7 +70,7 @@ describe 'a user visting the welcome page' do %q{
   end
 
   describe 'valid user can sign out' do
-    let(:user) {FactoryGirl.create(:user)}
+    let(:user) { FactoryGirl.create(:user) }
     it 'signs out a valid user' do
       visit root_path
       fill_in "Email", with: user.email

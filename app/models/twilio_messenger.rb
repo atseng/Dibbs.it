@@ -10,7 +10,7 @@ class TwilioMessenger
 
 
   def send_text(message)
-    if @to_user.recieves_notifications
+    if @to_user.receives_notifications
       @client.account.sms.messages.create(
           :body => message,
           :to => "+#{@to_user.phone_number}",

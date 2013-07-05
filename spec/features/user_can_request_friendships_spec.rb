@@ -16,8 +16,8 @@ describe 'User can request a friendship' do %q{
 }
 
   describe 'User can make a friend request' do
-  let!(:friend1) {FactoryGirl.create(:user1)}
-  let!(:friend2) {FactoryGirl.create(:user2)}
+  let!(:friend1) { FactoryGirl.create(:user1) }
+  let!(:friend2) { FactoryGirl.create(:user2) }
     it 'creates a friend request' do
       sign_in(friend1)
       visit users_path
@@ -34,8 +34,8 @@ describe 'User can request a friendship' do %q{
   end
 
   describe 'User can reject a friend request' do
-  let!(:friend1) {FactoryGirl.create(:user1)}
-  let!(:friend2) {FactoryGirl.create(:user2)}
+  let!(:friend1) { FactoryGirl.create(:user1) }
+  let!(:friend2) { FactoryGirl.create(:user2) }
     it 'removes a friend request' do
       sign_in(friend1)
       visit users_path

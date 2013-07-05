@@ -18,8 +18,8 @@ describe 'User can edit an object' do %q{
   end
 
   describe 'User can edit valid object' do
-  let(:user) {FactoryGirl.create(:user)}
-  let(:item) {FactoryGirl.create(:item)}
+  let(:user) { FactoryGirl.create(:user) }
+  let(:item) { FactoryGirl.create(:item) }
     it 'updates a valid item properties' do
      sign_in(user)
      create_item(item)
@@ -33,8 +33,8 @@ describe 'User can edit an object' do %q{
   end
 
   describe 'User can delete valid object' do
-  let(:user) {FactoryGirl.create(:user)}
-  let(:item) {FactoryGirl.create(:item)}
+  let(:user) { FactoryGirl.create(:user) }
+  let(:item) { FactoryGirl.create(:item) }
     it 'deletes a item' do
      sign_in(user)
      item_count = Item.count

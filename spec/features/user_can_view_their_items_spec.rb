@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-'User can view items' do %q{
+describe 'User can view items' do %q{
 
   As a user
   I want to be able to view items
@@ -11,8 +11,8 @@ require 'spec_helper'
 }
 
  describe "viewing my items" do
-  let(:user) {FactoryGirl.create(:user)}
-  let(:item) {FactoryGirl.create(:item)}
+  let(:user) { FactoryGirl.create(:user) }
+  let(:item) { FactoryGirl.create(:item) }
     it "should display a list of valid items" do
       sign_in(user)
       create_item(item)

@@ -12,8 +12,8 @@ describe 'User can upload an image for an item' do %q{
 }
 
   describe 'Signed in User submits valid object' do
-  let(:user) {FactoryGirl.create(:user)}
-  let(:item) {FactoryGirl.build(:item)}
+  let(:user) { FactoryGirl.create(:user) }
+  let(:item) { FactoryGirl.build(:item) }
     it 'uploads an image for a valid item ' do
       sign_in(user)
       visit new_item_path(user)

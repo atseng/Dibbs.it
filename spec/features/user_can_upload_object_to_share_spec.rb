@@ -14,8 +14,8 @@ describe 'User can upload an object' do %q{
 
 }
   describe 'Signed in User submits valid object' do
-  let(:user) {FactoryGirl.create(:user)}
-  let(:item) {FactoryGirl.build(:item)}
+  let(:user) { FactoryGirl.create(:user) }
+  let(:item) { FactoryGirl.build(:item) }
     it 'creates a valid item ' do
       sign_in(user)
       item_count = Item.count
@@ -26,7 +26,7 @@ describe 'User can upload an object' do %q{
   end
 
   describe 'Signed in User submits invalid object' do
-    let(:user) {FactoryGirl.create(:user)}
+    let(:user) { FactoryGirl.create(:user) }
     it 'creates a invalid item ' do
       sign_in(user)
       item_count = Item.count

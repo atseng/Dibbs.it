@@ -29,9 +29,9 @@ describe Item do
       it { should respond_to(:description) }
     end
 
-    context "value" do
-      it { should validate_presence_of(:value) }
-      it { should respond_to(:value) }
+    context "activity" do
+      it { should validate_presence_of(:activity) }
+      it { should respond_to(:activity) }
     end
 
   end
@@ -44,16 +44,16 @@ describe Item do
     end
 
     it "will not be valid if description field is empty" do
-      item = FactoryGirl.build(:item, description: nil)
+      item = FactoryGirl.build(:item, category: nil)
       expect(item).to_not be_valid
     end
 
-    it "will not be valid if value field is empty" do
-      item = FactoryGirl.build(:item, value: nil)
+    it "will not be valid if activity field is empty" do
+      item = FactoryGirl.build(:item, activity: nil)
       expect(item).to_not be_valid
     end
 
-    it "should accept name, description, value" do
+    it "should accept name, activity, category " do
       item_count = Item.all.count
       item = FactoryGirl.create(:item)
       expect(Item.all.count).to eql(item_count+1)

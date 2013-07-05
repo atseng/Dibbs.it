@@ -16,8 +16,12 @@
 <%= f.label :name %>
 <%= f.text_field :name %>
 
+<%= f.label :activity %>
+<%  @activities = [ "Chilling", "Cookout", "Movie Night", "Game Night", "Drinking", "Dance Party", "Camping", "Road Trip", "Girl's Night", "Guy's Night", "Night In", "Tailgating",  ] %>
+<%= f.select :activity, @activities %>
+
 <%= f.label :category %>
-<%  @categories = ["accessories", "books", "clothes", "dvds", "electronics", "music", "sports & outdoors", "tools & gear", "video games", "misc" ] %>
+<%  @categories = ["accessories", "books", "clothes", "dvds", "electronics", "music", "sports & outdoors", "textbooks", "tools & gear", "video games", "misc" ] %>
 <%= f.select :category, @categories %>
 
 <%= f.label :description %>

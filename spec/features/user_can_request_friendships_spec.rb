@@ -78,10 +78,10 @@ describe 'User can request a friendship' do %q{
     end
   end
 
-  describe 'User can reject a friend request' do
+  describe 'User can cancel a valid friendship ' do
   let!(:friend1) {FactoryGirl.create(:user1)}
   let!(:friend2) {FactoryGirl.create(:user2)}
-    it 'removes a friend request' do
+    it 'removes a friendship' do
       sign_in(friend1)
       visit users_path
       click_button "Friend Request"

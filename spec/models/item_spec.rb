@@ -24,11 +24,6 @@ describe Item do
       it { should respond_to(:category) }
     end
 
-    context "description" do
-      it { should validate_presence_of(:description) }
-      it { should respond_to(:description) }
-    end
-
     context "activity" do
       it { should validate_presence_of(:activity) }
       it { should respond_to(:activity) }

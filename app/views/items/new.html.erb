@@ -19,11 +19,11 @@
 <%= f.file_field :avatar %>
 
 <%= f.label :activity %>
-<%  @activities = [ "Art & Music", "Dance Party", "Drinking", "Camping", "Chilling", "Cookout", "Game Night", "Girl's Night", "Guy's Night", "Fitness", "Movie Night", "Night In", "Road Trip", "Studying", "Tailgating", "Other" ] %>
+<%  @activities = [ ["Select One", " "], "Art & Music", "Dance Party", "Drinking", "Camping", "Chilling", "Cookout", "Game Night", "Girl's Night", "Guy's Night", "Fitness", "Movie Night", "Night In", "Road Trip", "Studying", "Tailgating", "Other" ] %>
 <%= f.select :activity, @activities %>
 
 <%= f.label :category %>
-<%  @categories = ["Accessories", "Books", "Clothes", "Dorm", "Electronics", "Films", "Games", "Gear", "Music", "Sports", "Shoes", "Textbooks", "Outdoors", "Video Games", "Misc" ] %>
+<%  @categories = [ ["Select One", " "], "Accessories", "Books", "Clothes", "Dorm", "Electronics", "Films", "Games", "Gear", "Music", "Sports", "Shoes", "Textbooks", "Outdoors", "Video Games", "Misc" ] %>
 <%= f.select :category, @categories %>
 
 <%= f.label :description %>

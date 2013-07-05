@@ -22,7 +22,7 @@ describe 'User can search for items' do %q{
     it 'searches by item name' do
       sign_in(user)
       visit search_path
-      fill_in "Item Name, Activity, or Category", with: "Slip n Slide"
+      fill_in "Item Name", with: "Slip n Slide"
       click_button "Search"
       expect(page).to have_content(item2.name)
       expect(page).to_not have_content(item.name)
@@ -38,10 +38,10 @@ describe 'User can search for items' do %q{
     it 'searches by activity' do
       sign_in(user)
       visit search_path
-      fill_in "Item Name, Activity, or Category", with: "Cookout"
+      select(item2.activity, :from => 'q[activity_eq]')
       click_button "Search"
-      expect(page).to have_content(item2.activity)
-      expect(page).to_not have_content(item.activity)
+      expect(page).to have_content(item2.name)
+      expect(page).to_not have_content(item.name)
     end
   end
 
@@ -54,10 +54,10 @@ describe 'User can search for items' do %q{
     it 'searches by cateogry of item' do
       sign_in(user)
       visit search_path
-      fill_in "Item Name, Activity, or Category", with: "Sports"
+      select(item2.category, :from => 'q[category_eq]')
       click_button "Search"
-      expect(page).to have_content(item2.category)
-      expect(page).to_not have_content(item.category)
+      expect(page).to have_content(item2.name)
+      expect(page).to_not have_content(item.name)
     end
   end
 

@@ -5,23 +5,38 @@
 
    <%= search_form_for @q, url: search_path, method: :get do |f| %>
        <div class="field">
-        <%= f.label :name_or_category_cont, "Item Name, Activity, or Category" %>
-        <%= f.text_field :name_or_category_cont %>
+        <%= f.label :name_cont, "Item Name" %>
+        <%= f.text_field :name_cont %>
       </div>
-      <div class="actions"><%= f.submit "Search" %></div>
+
+      <div class="activity_select">
+        <%= f.label :activity, "Activity" %>
+        <%= f.select :activity_eq, options_for_select([['Select', ''], ["Art & Music"], ["Dance Party"], ["Drinking"], ["Camping"], ["Chilling"], ["Cookout"], ["Game Night"], ["Girl's Night"], ["Guy's Night"], ["Fitness"], ["Movie Night"], ["Night In"], ["Road Trip"], ["Studying"], ["Tailgating"], ["Other"]], :selected => :activity) %>
+        </div>
+
+        <div class="category_select">
+          <%= f.label :category, "Category" %>
+          <%= f.select :category_eq, options_for_select([['Select', ''], ["Accessories"], ["Books"], ["Clothes"], ["Dorm"], ["Electronics"], ["Films"], ["Games"], ["Gear"], ["Music"], ["Sports"], ["Shoes"], ["Textbooks"], ["Outdoors"], ["Video Games"], ["Misc"]], :selected => :category) %>
+        </div>
+
+        <div class="actions"><%= f.submit "Search" %></div>
     <% end %>
     </div>
 
     <table id="items">
       <tr>
         <th><%= sort_link @q, :name, "Item" %></th>
-        <th><%= sort_link @q, :category, "Cateogry" %></th>
+        <th><%= sort_link @q, :activity, "Activity" %></th>
+        <th><%= sort_link @q, :category, "Category" %></th>
       </tr>
-      <% @items.each do |item| %>
-        <tr>
-          <td><%= link_to(item.name, item) %></td>
-          <td><%= item.category %></td>
-        </tr>
+        <% @items.each do |item| %>
+        <% unless current_user == item.user %>
+          <tr>
+            <td><%= link_to(item.name, item) %></td>
+            <td><%= item.activity %></td>
+            <td><%= item.category %></td>
+          </tr>
+        <% end %>
       <% end %>
     </table>
     </div>

@@ -14,32 +14,50 @@ describe 'User can search for items' do %q{
 }
 
   describe 'User creates a search query' do
-  let(:user) { FactoryGirl.create(:user) }
-  let(:item) { FactoryGirl.build(:item) }
+  let!(:friendship) { FactoryGirl.create(:friendship) }
+  let!(:user) { friendship.user }
+  let!(:friend) { friendship.friend }
+  let!(:item) { FactoryGirl.create(:item, user: friend) }
+  let!(:item2) { FactoryGirl.create(:item, user: friend, name: "Slip n Slide") }
     it 'searches by item name' do
       sign_in(user)
       visit search_path
-      expect(page).to have_content()
+      fill_in "Item Name, Activity, or Category", with: "Slip n Slide"
+      click_button "Search"
+      expect(page).to have_content(item2.name)
+      expect(page).to_not have_content(item.name)
     end
   end
 
   describe 'User creates a search query' do
-  let(:user) { FactoryGirl.create(:user) }
-  let(:item) { FactoryGirl.build(:item) }
+  let!(:friendship) { FactoryGirl.create(:friendship) }
+  let!(:user) { friendship.user }
+  let!(:friend) { friendship.friend }
+  let!(:item) { FactoryGirl.create(:item, user: friend) }
+  let!(:item2) { FactoryGirl.create(:item, user: friend, activity: "grilling") }
     it 'searches by activity' do
       sign_in(user)
       visit search_path
-      expect(page).to have_content()
+      fill_in "Item Name, Activity, or Category", with: "Slip n Slide"
+      click_button "Search"
+      expect(page).to have_content(item2.activity)
+      expect(page).to_not have_content(item.activity)
     end
   end
 
   describe 'User creates a search query' do
-  let(:user) { FactoryGirl.create(:user) }
-  let(:item) { FactoryGirl.build(:item) }
+  let!(:friendship) { FactoryGirl.create(:friendship) }
+  let!(:user) { friendship.user }
+  let!(:friend) { friendship.friend }
+  let!(:item) { FactoryGirl.create(:item, user: friend) }
+  let!(:item2) { FactoryGirl.create(:item, user: friend, category: "sports & outdoors") }
     it 'searches by cateogry of item' do
       sign_in(user)
       visit search_path
-      expect(page).to have_content()
+      fill_in "Item Name, Activity, or Category", with: "sports & outdoors"
+      click_button "Search"
+      expect(page).to have_content(item2.category)
+      expect(page).to_not have_content(item.category)
     end
   end
 

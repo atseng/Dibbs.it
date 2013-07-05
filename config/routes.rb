@@ -13,7 +13,7 @@ Dibbs::Application.routes.draw do
     resources :loans, only: [:create]
   end
 
-  resource :search
+  resource :search, only: [:show]
 
   root :to => "users#edit"
   # The priority is based upon order of creation:

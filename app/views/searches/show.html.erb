@@ -1,20 +1,29 @@
-<%= search_form_for @q, url: search_path, method: :get do |f| %>
-   <div class="field">
-    <%= f.label :name_cont, "Item Name" %>
-    <%= f.text_field :name_cont %>
-  </div>
-  <div class="actions"><%= f.submit "Search" %></div>
-<% end %>
+<div class="container2">
+  <div class="row">
+    <%= render 'nav' %>
+    <div class="search">
 
-<table id="items">
-  <tr>
-    <th><%= sort_link @q, :name, "Item Name" %></th>
-    <th><%= sort_link @q, :category, "Cateogry" %></th>
-  </tr>
-<% @items.each do |item| %>
-  <tr>
-    <td><%= link_to(item.name, item) %></td>
-    <td><%= item.category %></td>
-  </tr>
-<% end %>
-</table>
+   <%= search_form_for @q, url: search_path, method: :get do |f| %>
+       <div class="field">
+        <%= f.label :name_or_category_cont, "Item Name, Activity, or Category" %>
+        <%= f.text_field :name_or_category_cont %>
+      </div>
+      <div class="actions"><%= f.submit "Search" %></div>
+    <% end %>
+    </div>
+
+    <table id="items">
+      <tr>
+        <th><%= sort_link @q, :name, "Item" %></th>
+        <th><%= sort_link @q, :category, "Cateogry" %></th>
+      </tr>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= link_to(item.name, item) %></td>
+          <td><%= item.category %></td>
+        </tr>
+      <% end %>
+    </table>
+    </div>
+  </div>
+</div>

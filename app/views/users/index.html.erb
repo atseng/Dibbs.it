@@ -6,12 +6,8 @@
 
       <%= search_form_for @q do |f| %>
         <div class ="field">
-          <%= f.label :name_cont, "User Name" %>
-          <%= f.text_field :name_cont %>
-        </div>
-        <div class = "field">
-          <%= f.label :email_start, "User Email" %>
-          <%= f.text_field :email_start %>
+          <%= f.label :name_or_email_cont, "User Name or Email" %>
+          <%= f.text_field :name_or_email_cont %>
         </div>
         <div class="actions"><%= f.submit "Search" %></div>
       <% end %>

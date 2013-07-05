@@ -16,8 +16,18 @@ describe 'User can search for other users' do %q{
     it 'creates a search by name query' do
       sign_in(user)
       visit user_index_path
+      fill_in "User Name or Email", with: "Michaelango"
 
     end
   end
 
+
+    describe 'User searching for a friend' do
+    it 'creates a search by email query' do
+      sign_in(user)
+      visit user_index_path
+      fill_in "User Name or Email", with: "leonardo@nyc.com"
+
+    end
+  end
 end

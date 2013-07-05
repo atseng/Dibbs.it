@@ -37,4 +37,5 @@ RSpec.configure do |config|
   config.order = "random"
   config.include(SignInHelper)
   config.include(CreateItemHelper)
+  config.include(CreateFriendshipHelper)
 end

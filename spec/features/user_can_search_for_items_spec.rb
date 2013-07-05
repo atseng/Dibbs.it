@@ -34,11 +34,11 @@ describe 'User can search for items' do %q{
   let!(:user) { friendship.user }
   let!(:friend) { friendship.friend }
   let!(:item) { FactoryGirl.create(:item, user: friend) }
-  let!(:item2) { FactoryGirl.create(:item, user: friend, activity: "grilling") }
+  let!(:item2) { FactoryGirl.create(:item, user: friend, activity: "Cookout") }
     it 'searches by activity' do
       sign_in(user)
       visit search_path
-      fill_in "Item Name, Activity, or Category", with: "Slip n Slide"
+      fill_in "Item Name, Activity, or Category", with: "Cookout"
       click_button "Search"
       expect(page).to have_content(item2.activity)
       expect(page).to_not have_content(item.activity)
@@ -50,11 +50,11 @@ describe 'User can search for items' do %q{
   let!(:user) { friendship.user }
   let!(:friend) { friendship.friend }
   let!(:item) { FactoryGirl.create(:item, user: friend) }
-  let!(:item2) { FactoryGirl.create(:item, user: friend, category: "sports & outdoors") }
+  let!(:item2) { FactoryGirl.create(:item, user: friend, category: "Sports") }
     it 'searches by cateogry of item' do
       sign_in(user)
       visit search_path
-      fill_in "Item Name, Activity, or Category", with: "sports & outdoors"
+      fill_in "Item Name, Activity, or Category", with: "Sports"
       click_button "Search"
       expect(page).to have_content(item2.category)
       expect(page).to_not have_content(item.category)

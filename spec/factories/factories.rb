@@ -12,8 +12,8 @@ FactoryGirl.define do
 
   factory :item do
     sequence(:name) {|n| "Skip it#{n}"}
-    activity 'night in'
-    category 'misc'
+    activity 'Night In'
+    category 'Misc'
     description '90s skipping toy'
     value '15'
     association :user

@@ -1,26 +1,26 @@
 require 'spec_helper'
 
-describe 'User can edit an object' do %q{
+describe 'User can edit an item' do %q{
 
   As a user
-  I want to be update an object
+  I want to be update an item
   So that I can list important changes
 
   AC
-  * I can edit the object name
-  * I can edit the object description
-  * I can edit the object value
-  * I can delete an object
+  * I can edit the item name
+  * I can edit the item picture
+  * I can edit the item activity
+  * I can edit the item category
+  * I can edit the item description
+  * I can edit the item value
+  * I can delete an item
 
 }
-  before (:each) do
-    Item.destroy_all
-  end
 
-  describe 'User can edit valid object' do
+  describe 'User can edit valid item' do
   let(:user) { FactoryGirl.create(:user) }
   let(:item) { FactoryGirl.create(:item) }
-    it 'updates a valid item properties' do
+    it 'updates a valid item name properties' do
      sign_in(user)
      create_item(item)
      click_link item.name
@@ -32,7 +32,7 @@ describe 'User can edit an object' do %q{
     end
   end
 
-  describe 'User can delete valid object' do
+  describe 'User can delete valid item' do
   let(:user) { FactoryGirl.create(:user) }
   let(:item) { FactoryGirl.create(:item) }
     it 'deletes a item' do

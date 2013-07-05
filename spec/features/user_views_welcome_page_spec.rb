@@ -16,11 +16,6 @@ describe 'a user visting the welcome page' do %q{
   * Valid User can sign out
 }
 
-  before(:each) do
-    User.destroy_all
-  end
-
-
   describe 'visitor must sign in to use app' do
     it 'displays sign in as the welcome page' do
       visit root_path

@@ -22,7 +22,6 @@ describe 'User can search for other users' do %q{
       fill_in "User Name or Email", with: "Michaelango"
       click_button "Search"
       expect(page).to have_content(user2.name)
-      save_and_open_page
       expect(page).to_not have_content(user3.name)
     end
   end

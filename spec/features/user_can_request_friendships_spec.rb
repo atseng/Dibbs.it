@@ -42,8 +42,8 @@ describe 'User can request a friendship' do %q{
   end
 
   describe 'User can view pending friendships' do
-  let!(:friend1) {FactoryGirl.create(:user1)}
-  let!(:friend2) {FactoryGirl.create(:user2)}
+  let!(:friend1) { FactoryGirl.create(:user1) }
+  let!(:friend2) { FactoryGirl.create(:user2) }
     it 'views pending friendships' do
       sign_in(friend1)
       visit users_path
@@ -57,8 +57,8 @@ describe 'User can request a friendship' do %q{
   end
 
   describe 'User can view requested friendships' do
-  let!(:friend1) {FactoryGirl.create(:user1)}
-  let!(:friend2) {FactoryGirl.create(:user2)}
+  let!(:friend1) { FactoryGirl.create(:user1) }
+  let!(:friend2) { FactoryGirl.create(:user2) }
     it 'views requested friendships' do
       sign_in(friend1)
       visit users_path
@@ -69,8 +69,8 @@ describe 'User can request a friendship' do %q{
   end
 
   describe 'User can cancel a valid friendship ' do
-  let!(:friend1) {FactoryGirl.create(:user1)}
-  let!(:friend2) {FactoryGirl.create(:user2)}
+  let!(:friend1) { FactoryGirl.create(:user1) }
+  let!(:friend2) { FactoryGirl.create(:user2) }
     it 'removes a friendship' do
       create_friendship(friend1, friend2)
       click_link "[Unfriend]"

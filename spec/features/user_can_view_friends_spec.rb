@@ -32,7 +32,6 @@ describe 'User can view their friends' do %q{
       create_friendship(friend1, friend2)
       visit user_friendships_path(friend1)
       click_link friend1.name
-      save_and_open_page
       expect(friend1.items.count).to eq(3)
     end
   end

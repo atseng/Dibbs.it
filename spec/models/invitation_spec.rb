@@ -11,6 +11,8 @@ describe Invitation do
   describe "validations" do
     context 'recipient email' do
       it { should validate_presence_of(:recipient_email) }
+      it { should_not allow_value("blah").for(:recipient_email) }
+      it { should allow_value("a@b.com").for(:recipient_email) }
     end
   end
 

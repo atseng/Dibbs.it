@@ -1,0 +1,12 @@
+<%= form_for @invitation do |f| %>
+    <%= f.hidden_field :token %>
+    <br />
+    <div class="field">
+        <%= f.label :recipient_email, "Friend's email address" %>
+        <%= f.email_field :recipient_email %>
+    </div>
+    <br />
+    <div class="action">
+        <%= f.submit "Invite!", :class => "a small white button radius" %>
+    </div>
+<% end %>

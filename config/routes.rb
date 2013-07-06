@@ -14,7 +14,7 @@ Dibbs::Application.routes.draw do
   end
 
   resource :search, only: [:show]
-  resource :invitations, only: [:new]
+  resource :invitations, only: [:new, :create]
 
   root :to => "users#edit"
   # The priority is based upon order of creation:

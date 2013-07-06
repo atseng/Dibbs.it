@@ -1,5 +1,4 @@
 class InvitationsController < ApplicationController
-  before_filter :authenticate
 
   def new
     @invitation = Invitation.new
@@ -8,7 +7,9 @@ class InvitationsController < ApplicationController
   def create
     @invitation = Invitation.new(params[:invitation])
     @invitation.sender = current_user
+
     if @invitation.save
+      # Mailer.deliver_invitation(@invitation, signup_url(@invitation.token))
       flash[:notice] = "Thank you, friend invitation sent."
       redirect_to edit_user_path(current_user)
     else

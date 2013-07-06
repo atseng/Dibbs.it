@@ -17,7 +17,7 @@
       <% if current_user.invitation_limit > 0 %>
         <li>
           <%= link_to "Invite a friend", new_invitations_path %>
-          (<%= current_user.invitation_limit left %>)
+          (<%= current_user.invitation_limit %>) left
         </li>
       <% end %>
     </div>

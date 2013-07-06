@@ -10,7 +10,7 @@ describe Invitation do
 
   describe "validations" do
     context 'recipient email' do
-      it { should validate_presence_of(:reciepient_email) }
+      it { should validate_presence_of(:recipient_email) }
     end
   end
 

@@ -14,7 +14,12 @@
     </div>
 
     <div class="send_invitation">
-        <li><%= link_to "Invite a friend" %></li>
+      <% if current_user.invitation_limit > 0 %>
+        <li>
+          <%= link_to "Invite a friend", new_invitation_path %>
+          (<%= current_user.invitation_limit left %>)
+        </li>
+      <% end %>
     </div>
 
       <table class= "table">

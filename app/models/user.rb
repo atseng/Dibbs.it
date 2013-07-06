@@ -1,5 +1,12 @@
 class User < ActiveRecord::Base
 
+  has_many :sent_invitations,
+    :class_name => 'Invitation'
+
+  belongs_to :invitation
+
+  before_create :set_invitation_limit
+
   has_many :friendships,
     :dependent => :destroy
 
@@ -39,5 +46,11 @@ class User < ActiveRecord::Base
 
   has_many :owners,
     :dependent => :destroy
+
+  private
+
+  def set_invitation_limit
+    self.invitation_limit = 3
+  end
 
 end

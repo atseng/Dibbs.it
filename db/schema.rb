@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130705175649) do
+ActiveRecord::Schema.define(:version => 20130706173744) do
 
   create_table "friendships", :force => true do |t|
     t.integer  "user_id"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(:version => 20130705175649) do
     t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "invitations", :force => true do |t|
+    t.integer  "sender_id"
+    t.string   "token"
+    t.datetime "sent_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "recipient_email"
   end
 
   create_table "items", :force => true do |t|
@@ -58,6 +67,8 @@ ActiveRecord::Schema.define(:version => 20130705175649) do
     t.string   "name"
     t.string   "phone_number"
     t.boolean  "receives_notifications", :default => false
+    t.integer  "invitation_id"
+    t.integer  "invitation_limit"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

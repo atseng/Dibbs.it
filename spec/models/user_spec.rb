@@ -15,6 +15,11 @@ describe User do
     end
   end
 
+    context "invitations" do
+      it { should have_many(:sent_invitations) }
+      it { should belong_to(:invitation) }
+    end
+
   describe "validations" do
     context "name" do
       it { should validate_presence_of(:name) }

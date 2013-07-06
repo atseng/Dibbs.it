@@ -7,11 +7,13 @@ FactoryGirl.define do
     sequence(:email) {|n| "person#{n}@example.com" }
     password 'northern_soul'
     password_confirmation 'northern_soul'
+    receives_notifications false
   end
 
   factory :item do
-    name 'Skip it'
-    category 'misc'
+    sequence(:name) {|n| "Skip it#{n}"}
+    activity 'Night In'
+    category 'Misc'
     description '90s skipping toy'
     value '15'
     association :user
@@ -30,17 +32,24 @@ FactoryGirl.define do
   end
 
   factory :user1, class: 'User' do
-    name 'Bert'
-    email 'Bert@seasame.st'
+    sequence(:name) {|n| "Bert#{n}"}
+    sequence(:email) {|n| "bert#{n}@seasamest.com" }
     password 'Bigbirdyo'
     password_confirmation 'Bigbirdyo'
+    receives_notifications false
+    factory :user1_with_items do
+      after(:create) do |user|
+        FactoryGirl.create_list(:item, 1, user: user)
+      end
+    end
   end
 
   factory :user2, class: 'User' do
     name 'Ernie'
-    email 'Ernie@blah.com'
+    sequence(:email) {|n| "ernie#{n}@set.com" }
     password 'CountDrac'
     password_confirmation 'CountDrac'
+    receives_notifications false
   end
 
   factory :loan do

@@ -1,0 +1,28 @@
+<div class="span12">
+  <table class= "table">
+    <tr>
+      <th>Avatar</th>
+      <th>Item</th>
+      <th>Activity</th>
+      <th>Category</th>
+      <th>Comments</th>
+      <th>Value</th>
+    </tr>
+      <% @items.each do |item| %>
+       <% unless item.currently_loaned.empty? %>
+        <tr>
+          <td><%= image_tag item.avatar_url(:desktop) if item.avatar? %></td>
+          <td><%= link_to item.name, item_path(item), method: :get  %></td>
+          <td><%= item.activity %></td>
+          <td><%= item.category %></td>
+          <td><%= item.description %></td>
+          <td><%= item.value %></td>
+          <td><%= button_to "Return it!",
+           { :controller => :loans, :action=> :update, :item_id => item, :id => item.loans},
+           { :remote => true } %>
+         </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>

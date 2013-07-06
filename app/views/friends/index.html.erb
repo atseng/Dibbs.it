@@ -1,7 +1,4 @@
-<li><%= link_to 'My Items', edit_user_path(current_user) %></li>
-<li><%= link_to "Find Friends", users_path %></li>
-<li><%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
-
+<%= render 'nav' %>
 
 <% unless @user == current_user || current_user.requested_friends.include?(@user) || current_user.friends.include?(@user) || current_user.pending_friends.include?(@user) %>
   You do not have permission to access this page!

@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @users = User.all(params[:id])
+    @q = User.search(params[:q])
+    @users = @q.result(:distinct => true)
   end
 
   def show

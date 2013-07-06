@@ -10,8 +10,10 @@ Dibbs::Application.routes.draw do
   end
 
   resources :items, except: [:index] do
-    resources :loans, only: [:create]
+    resources :loans, only: [:create, :edit, :update]
   end
+
+  resource :search, only: [:show]
 
   root :to => "users#edit"
   # The priority is based upon order of creation:

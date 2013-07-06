@@ -3,6 +3,7 @@
   <tr>
     <th>Avatar</th>
     <th>Item</th>
+    <th>Activity</th>
     <th>Category</th>
     <th>Comments</th>
     <th>Value</th>
@@ -11,12 +12,13 @@
   <tr>
     <td><%= @item.avatar %></td>
     <td><%= @item.name %></td>
+     <td><%= @item.activity %></td>
     <td><%= @item.category %></td>
     <td><%= @item.description %></td>
     <td><%= @item.value %></td>
     <td><%= form_for [@item, @item.loans.build] do |f| %>
-        <% if @item.loans.find_by_state("loaned") %>
-             <%= "Loaned" %>
+        <% if @item.loans.find_by_state("dibbs") %>
+             <%= "Dibbs Request" %>
           <% else %>
             <%= f.submit "Dibbs" %>
         <% end %>

@@ -1,12 +1,23 @@
 <div class="container2">
   <div class="row">
-    <li><%= link_to "My Items", edit_user_path(current_user) %></li>
-    <li><%= link_to "My Friendships", user_friendships_path(current_user) %></li>
+     <%= render 'nav' %>
     <div class="span12">
+    <div class="search">
+
+      <%= search_form_for @q do |f| %>
+        <div class ="field">
+          <%= f.label :name_or_email_cont, "User Name or Email" %>
+          <%= f.text_field :name_or_email_cont %>
+        </div>
+        <div class="actions"><%= f.submit "Search" %></div>
+      <% end %>
+
+    </div>
       <table class= "table">
         <tr>
-          <th>Name</th>
-          <th>Email</th>
+          <th><%= sort_link @q, :name, "Name" %></th>
+          <th><%= sort_link @q, :email,
+          "Email" %></th>
           <th></th>
         </tr>
 

@@ -11,12 +11,11 @@ describe 'User can upload an object' do %q{
   * I can specify the object name
   * I can specify object description
   * I can specify object value
-  * I can see my items
 
 }
   describe 'Signed in User submits valid object' do
-  let(:user) {FactoryGirl.create(:user)}
-  let(:item) {FactoryGirl.build(:item)}
+  let(:user) { FactoryGirl.create(:user) }
+  let(:item) { FactoryGirl.build(:item) }
     it 'creates a valid item ' do
       sign_in(user)
       item_count = Item.count
@@ -27,7 +26,7 @@ describe 'User can upload an object' do %q{
   end
 
   describe 'Signed in User submits invalid object' do
-    let(:user) {FactoryGirl.create(:user)}
+    let(:user) { FactoryGirl.create(:user) }
     it 'creates a invalid item ' do
       sign_in(user)
       item_count = Item.count
@@ -35,16 +34,6 @@ describe 'User can upload an object' do %q{
       click_button "Add Item"
       expect(page).to have_content("can't be blank")
       expect(item_count).to eq(Item.count)
-    end
-  end
-
-  describe "viewing my items" do
-  let(:user) {FactoryGirl.create(:user)}
-  let(:item) {FactoryGirl.create(:item)}
-    it "should display a list of valid items" do
-      sign_in(user)
-      create_item(item)
-      expect(page).to have_content("Skip it")
     end
   end
 

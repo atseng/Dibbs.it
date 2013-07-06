@@ -29,13 +29,13 @@ end
   shredder = User.find_by_name("Shredder")
 
 item_list = [
-  [raph, "katana", "video games", "samurai sword", " ", 200  ],
-  [mike, "nunchucks", "electronics", "woood handles", " ", 75 ],
-  [leo, "sai", "dvds", "double sidekicks", " ", 100 ],
-  [don, "bo staff", "sports & outdoors", "high jumper", " ", 150 ]
-  [ap, "yellow jumpsuit", "clothes", "mic'd up", " ", 60]
-  [cj, "hockey stick", "sports & outdoors", "solid wood oak", " ", 75]
-  [shredder, "claw", "accessories", "slice & dice", " ", 1000]
+  [raph, "katana", "Video Games", "samurai sword", " ", 200  ],
+  [mike, "nunchucks", "Electronics", "woood handles", " ", 75 ],
+  [leo, "sai", "Films", "double sidekicks", " ", 100 ],
+  [don, "bo staff", "Outdoors", "high jumper", " ", 150 ]
+  [ap, "yellow jumpsuit", "Clothes", "mic'd up", " ", 60]
+  [cj, "hockey stick", "Sports", "solid wood oak", " ", 75]
+  [shredder, "claw", "Accessories", "slice & dice", " ", 1000]
 ]
 
  item_list.each do | user, name, category, description, avatar, value|

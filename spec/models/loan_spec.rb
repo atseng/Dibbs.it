@@ -33,6 +33,26 @@ describe Loan do
   end
 
 
+  describe "invalid loan" do
+    user1 = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user2)
+    it "will not be valid if owner field is empty" do
+    loan = FactoryGirl.build(:loan, owner: nil, borrower: user1)
+      expect(loan).to_not be_valid
+    end
+
+    it "will not be valid if borrower field is empty" do
+    loan = FactoryGirl.build(:loan, owner: user1, borrower: nil)
+      expect(loan).to_not be_valid
+    end
+
+    it "will not be valid if status field is empty" do
+    loan = FactoryGirl.build(:loan, owner: user1, borrower: user2, state: nil)
+      expect(loan).to_not be_valid
+    end
+  end
+
+
 
 
 

@@ -10,6 +10,10 @@ gem 'devise'
 gem 'state_machine'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog', '~> 1.3.1'
+gem 'ransack'
+gem 'twilio-ruby'
+gem 'phony_rails'
 
 
 # Gems used only for assets and not required
@@ -34,6 +38,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 group :test do

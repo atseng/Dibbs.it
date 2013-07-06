@@ -1,18 +1,21 @@
 # encoding: utf-8
 
 class AvatarUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MiniMagick
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
   # include Sprockets::Helpers::RailsHelper
   # include Sprockets::Helpers::IsolatedHelper
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  if Rails.env.production?
+    storage :fog
+  else
+    storage :file
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -36,17 +39,17 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :desktop do
-  #   process :scale => [250, 250]
-  # end
+  version :desktop do
+    process :resize_to_limit => [250, 250]
+  end
 
-  # version :mobile, :from_version => :desktop do
-  #   process :resize_to_limit => [114, 114]
-  # end
+  version :mobile, :from_version => :desktop do
+    process :resize_to_limit => [114, 114]
+  end
 
-  # version :thumb, :from_version => :mobile do
-  #   process :resize_to_limit => [75, 75]
-  # end
+  version :thumb, :from_version => :mobile do
+    process :resize_to_limit => [48, 48]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

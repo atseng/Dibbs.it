@@ -2,12 +2,13 @@
 <div class="container">
     <div class="row">
         <div class="span12">
+            <div class="user_name"><h2><%= @user.name %></h2></div>
             <table class= "table">
               <tr>
                 <th>Avatar</th>
                 <th>Item</th>
+                <th>Activity</th>
                 <th>Category</th>
-                <th></th>
                 <th></th>
                 <th></th>
               </tr>
@@ -15,6 +16,7 @@
               <tr>
                 <td></td>
                 <td><%= link_to item.name, item_path(item) %></td>
+                <td><%= item.activity %></td>
                 <td><%= item.category %></td>
               </tr>
             <% end %>

@@ -15,29 +15,14 @@
   <%= render 'nav' %>
 
   <h1> My Items </h1>
-    <div class="span12">
-      <table class= "table">
-        <tr>
-          <th>Avatar</th>
-          <th>Item</th>
-          <th>Category</th>
-          <th>Comments</th>
-          <th>Value</th>
-          <th></th>
-        </tr>
-      <% @items.each do |item| %>
-        <tr>
-          <td><%= image_tag item.avatar if item.avatar? %></td>
-          <td><%= link_to item.name, edit_item_path(item), method: :get  %></td>
-          <td><%= item.category %></td>
-          <td><%= item.description %></td>
-          <td><%= item.value %></td>
-          <td><%= link_to 'Destroy', item_path(item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-      </table>
-    </div>
+    <%= render 'my_items' %>
+  Pending Items:
+    <%= render 'pending_items' %>
+  Loaned Items:
+    <%= render 'loaned_items'  %>
 
+
+<li><%= link_to "Add Item", new_item_path %></li>
 
 
   <%= debug(params) if Rails.env.development? %>

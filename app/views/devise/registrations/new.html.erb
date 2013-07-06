@@ -6,6 +6,12 @@
   <div><%= f.label :name %><br />
   <%= f.text_field :name %></div>
 
+  <div><%= f.label :phone_number %><br />
+  <%= f.text_field :phone_number %><br /></div>
+
+  <div><%= f.check_box :receives_notifications %>
+  <%= f.label :receives_notifications %><br /></div>
+
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
 
@@ -14,6 +20,7 @@
 
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
+
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>

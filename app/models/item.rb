@@ -9,10 +9,17 @@ class Item < ActiveRecord::Base
 
   validates_presence_of :category
   validates_presence_of :name
-  validates_presence_of :description
-  validates_presence_of :value
+  validates_presence_of :activity
 
   mount_uploader :avatar, AvatarUploader
+
+  def dibbs?
+    loans.where(state: 'dibbs').present?
+  end
+
+  def dibbs_it
+    loans.where(state: 'dibbs')
+  end
 
   def loaned?
     loans.where(state: 'loaned').present?
@@ -31,5 +38,5 @@ class Item < ActiveRecord::Base
   end
 
 
-  attr_accessible :avatar, :description, :category, :name, :user_id, :value
+  attr_accessible :avatar, :activity, :description, :category, :name, :user_id, :value
 end

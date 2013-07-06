@@ -16,26 +16,17 @@ describe 'User can request a friendship' do %q{
 }
 
   describe 'User can make a friend request' do
-  let!(:friend1) {FactoryGirl.create(:user1)}
-  let!(:friend2) {FactoryGirl.create(:user2)}
+  let!(:friend1) { FactoryGirl.create(:user1) }
+  let!(:friend2) { FactoryGirl.create(:user2) }
     it 'creates a friend request' do
-      sign_in(friend1)
-      visit users_path
-      click_button "Friend Request"
-      expect(page).to have_content("Friendship Pending")
-      click_link "Sign out"
-
-      sign_in(friend2)
-      visit user_friendships_path(friend2)
-      click_link "[Accept]"
-      expect(page).to have_content("Friend request accepted")
+      create_friendship(friend1, friend2)
       expect(page).to have_content("My Friends: Bert")
     end
   end
 
   describe 'User can reject a friend request' do
-  let!(:friend1) {FactoryGirl.create(:user1)}
-  let!(:friend2) {FactoryGirl.create(:user2)}
+  let!(:friend1) { FactoryGirl.create(:user1) }
+  let!(:friend2) { FactoryGirl.create(:user2) }
     it 'removes a friend request' do
       sign_in(friend1)
       visit users_path
@@ -51,8 +42,8 @@ describe 'User can request a friendship' do %q{
   end
 
   describe 'User can view pending friendships' do
-  let!(:friend1) {FactoryGirl.create(:user1)}
-  let!(:friend2) {FactoryGirl.create(:user2)}
+  let!(:friend1) { FactoryGirl.create(:user1) }
+  let!(:friend2) { FactoryGirl.create(:user2) }
     it 'views pending friendships' do
       sign_in(friend1)
       visit users_path
@@ -62,13 +53,12 @@ describe 'User can request a friendship' do %q{
       sign_in(friend2)
       visit user_friendships_path(friend2)
       expect(page).to have_content("Pending Friendships: Bert")
-
     end
   end
 
   describe 'User can view requested friendships' do
-  let!(:friend1) {FactoryGirl.create(:user1)}
-  let!(:friend2) {FactoryGirl.create(:user2)}
+  let!(:friend1) { FactoryGirl.create(:user1) }
+  let!(:friend2) { FactoryGirl.create(:user2) }
     it 'views requested friendships' do
       sign_in(friend1)
       visit users_path
@@ -78,18 +68,11 @@ describe 'User can request a friendship' do %q{
     end
   end
 
-  describe 'User can reject a friend request' do
-  let!(:friend1) {FactoryGirl.create(:user1)}
-  let!(:friend2) {FactoryGirl.create(:user2)}
-    it 'removes a friend request' do
-      sign_in(friend1)
-      visit users_path
-      click_button "Friend Request"
-      click_link "Sign out"
-
-      sign_in(friend2)
-      visit user_friendships_path(friend2)
-      click_link "[Accept]"
+  describe 'User can cancel a valid friendship ' do
+  let!(:friend1) { FactoryGirl.create(:user1) }
+  let!(:friend2) { FactoryGirl.create(:user2) }
+    it 'removes a friendship' do
+      create_friendship(friend1, friend2)
       click_link "[Unfriend]"
       expect(page).to have_content("My Friends: None")
     end

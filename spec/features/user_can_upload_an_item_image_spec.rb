@@ -12,13 +12,14 @@ describe 'User can upload an image for an item' do %q{
 }
 
   describe 'Signed in User submits valid object' do
-  let(:user) {FactoryGirl.create(:user)}
-  let(:item) {FactoryGirl.build(:item)}
+  let(:user) { FactoryGirl.create(:user) }
+  let(:item) { FactoryGirl.build(:item) }
     it 'uploads an image for a valid item ' do
       sign_in(user)
       visit new_item_path(user)
       fill_in "Name", with: item.name
       attach_file('item_avatar', "#{Rails.root}/spec/support/example.jpg")
+      select(item.activity, :from => "Activity")
       select(item.category, :from => "Category")
       fill_in "Description", with: item.description
       fill_in "Value", with: item.value

@@ -46,7 +46,6 @@ describe 'User can trade items' do %q{
 
       visit user_items_path(friend)
       click_on item.name
-      save_and_open_page
       expect(page).to have_content("Dibbs Request")
     end
   end

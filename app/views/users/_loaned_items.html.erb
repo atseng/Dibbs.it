@@ -17,7 +17,10 @@
           <td><%= item.category %></td>
           <td><%= item.description %></td>
           <td><%= item.value %></td>
-          <td><%= button_to "Return it!", url: item_loan_path(item, item.loans), method: :post, :action => "update", :controller => :loans, :remote => true %></td>
+          <td><%= button_to "Return it!",
+           { :controller => :loans, :action=> :update, :item_id => item, :id => item.loans},
+           { :remote => true } %>
+         </td>
         </tr>
       <% end %>
     <% end %>

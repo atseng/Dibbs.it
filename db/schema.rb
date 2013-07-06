@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130706165438) do
+ActiveRecord::Schema.define(:version => 20130706173744) do
 
   create_table "friendships", :force => true do |t|
     t.integer  "user_id"
@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(:version => 20130706165438) do
 
   create_table "invitations", :force => true do |t|
     t.integer  "sender_id"
-    t.string   "reciepient_email"
     t.string   "token"
     t.datetime "sent_at"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "recipient_email"
   end
 
   create_table "items", :force => true do |t|

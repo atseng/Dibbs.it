@@ -1,8 +1,6 @@
 class Friendship < ActiveRecord::Base
   validates_presence_of :user, :friend, :status
 
-  # validates_uniqueness_of :
-
   belongs_to :user
 
   belongs_to :friend,

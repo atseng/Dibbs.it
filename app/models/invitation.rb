@@ -1,6 +1,6 @@
 class Invitation < ActiveRecord::Base
-  belongs_to :sender, :class_name => "Users", :foreign_key => 'sender_id'
-  has_one :reciepient, :class_name => "Users", :foreign_key => 'recipient_id'
+  belongs_to :sender, :class_name => "User", :foreign_key => "sender_id"
+  has_one :reciepient, :class_name => "User", :foreign_key => "recipient_id"
 
   validates_presence_of :recipient_email
   validates_format_of :recipient_email, :with => /@/
@@ -15,12 +15,12 @@ class Invitation < ActiveRecord::Base
   private
 
   def recipient_is_not_registered
-    error.add :recipient_email, 'is already registered' if User.find_by_email(recipient_email)
+    errors.add :recipient_email, 'is already registered' if User.find_by_email(recipient_email)
   end
 
   def sender_has_invitations
-    unless current_user.invitation_limit > 0
-      error.add_to_base 'You have reached your friend invitation limit'
+    unless sender.invitation_limit > 0
+      errors[:base] << "You have reached your friend invitation limit"
     end
   end
 

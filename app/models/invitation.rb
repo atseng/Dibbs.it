@@ -1,6 +1,6 @@
 class Invitation < ActiveRecord::Base
-  belongs_to :sender, :class_name => "Users", :foreign_key => "sender_id"
-  has_one :reciepient, :class_name => "Users"
+  belongs_to :sender, :class_name => "Users", :foreign_key => 'sender_id'
+  has_one :reciepient, :class_name => "Users", :foreign_key => 'recipient_id'
 
   validates_presence_of :recipient_email
   validates_format_of :recipient_email, :with => /@/

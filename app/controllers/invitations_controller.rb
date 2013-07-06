@@ -1,17 +1,19 @@
 class InvitationsController < ApplicationController
+   before_filter :authenticate_user!
 
   def new
-    @invitation = Invitation.new
+   @invitation = current_user.sent_invitations.new
   end
 
   def create
-    @invitation = Invitation.new(params[:invitation])
-    @invitation.sender = current_user
+   @invitation = Invitation.new(params[:invitation])
+   @invitation.sender_id = current_user
+   @user = @invitation.sender_id
 
     if @invitation.save
-      # Mailer.deliver_invitation(@invitation, signup_url(@invitation.token))
-      flash[:notice] = "Thank you, friend invitation sent."
-      redirect_to edit_user_path(current_user)
+      Mailer.invitation(@invitation).deliver
+      flash[:notice] = "Your friend invitation has been sent"
+      redirect_to users_path
     else
       render :action => 'new'
     end

@@ -35,7 +35,7 @@ describe 'User can view items' do %q{
       click_on "Sign out"
 
       sign_in(user)
-      expect(page).to have_content("Loan it!")
+      expect(page).to have_button("Loan it!")
     end
   end
 
@@ -53,7 +53,7 @@ describe 'User can view items' do %q{
 
       sign_in(user)
       click_button "Loan it!"
-      expect(page).to have_content("Return it!")
+      expect(page).to have_button("Return it!")
     end
   end
 

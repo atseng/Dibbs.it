@@ -11,8 +11,12 @@
         </div>
         <div class="actions"><%= f.submit "Search" %></div>
       <% end %>
-
     </div>
+
+    <div class="send_invitation">
+        <li><%= link_to "Invite a friend" %></li>
+    </div>
+
       <table class= "table">
         <tr>
           <th><%= sort_link @q, :name, "Name" %></th>

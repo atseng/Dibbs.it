@@ -10,7 +10,7 @@
           <th></th>
         </tr>
       <% @items.each do |item| %>
-      <% unless item.loaned? %>
+      <% unless item.loaned? || item.dibbs? %>
         <tr>
           <td><%= image_tag item.avatar_url(:desktop) if item.avatar? %></td>
           <td><%= link_to item.name, edit_item_path(item), method: :get  %></td>

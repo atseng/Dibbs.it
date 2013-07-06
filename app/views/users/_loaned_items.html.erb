@@ -12,11 +12,12 @@
        <% unless item.currently_loaned.empty? %>
         <tr>
           <td><%= image_tag item.avatar_url(:desktop) if item.avatar? %></td>
-          <td><%= link_to item.name, edit_item_path(item), method: :get  %></td>
+          <td><%= link_to item.name, item_path(item), method: :get  %></td>
           <td><%= item.activity %></td>
           <td><%= item.category %></td>
           <td><%= item.description %></td>
           <td><%= item.value %></td>
+          <td><%= button_to "Return it!", url: item_loan_path(item, item.loans), method: :post, :action => "update", :controller => :loans, :remote => true %></td>
         </tr>
       <% end %>
     <% end %>

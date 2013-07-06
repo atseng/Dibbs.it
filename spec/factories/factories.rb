@@ -37,6 +37,11 @@ FactoryGirl.define do
     password 'Bigbirdyo'
     password_confirmation 'Bigbirdyo'
     receives_notifications false
+    factory :user1_with_items do
+      after(:create) do |user|
+        FactoryGirl.create_list(:item, 1, user: user)
+      end
+    end
   end
 
   factory :user2, class: 'User' do

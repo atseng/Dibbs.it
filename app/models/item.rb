@@ -13,6 +13,14 @@ class Item < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
+  def dibbs?
+    loans.where(state: 'dibbs').present?
+  end
+
+  def dibbs_it
+    loans.where(state: 'dibbs')
+  end
+
   def loaned?
     loans.where(state: 'loaned').present?
   end

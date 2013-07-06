@@ -25,4 +25,8 @@ class LoansController < ApplicationController
     end
   end
 
+  def update
+
+  end
+
 end

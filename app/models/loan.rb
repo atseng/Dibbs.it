@@ -1,12 +1,13 @@
 class Loan < ActiveRecord::Base
 
-  state_machine :state, :initial => :loaned do
+  state_machine :state, :initial => :dibbs do
+
+    event :loan do
+      transition :dibbs => :loaned
+    end
 
     event :return do
       transition :loaned => :returned
-    end
-
-    state :returned do
     end
   end
 

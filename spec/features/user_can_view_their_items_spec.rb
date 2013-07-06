@@ -7,6 +7,7 @@ describe 'User can view items' do %q{
   So I can see what's on the app
 
   * I can see my items
+  * I can see my loaned items
 
 }
 
@@ -18,6 +19,9 @@ describe 'User can view items' do %q{
       create_item(item)
       expect(page).to have_content("Skip it")
     end
+  end
+
+  describe "viewing loaned items" do
   end
 
 

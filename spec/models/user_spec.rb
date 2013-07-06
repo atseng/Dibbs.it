@@ -65,12 +65,13 @@ describe User do
   describe "friends" do
 
     it "creates a self-referential association between two users" do
-      friendship1 = FactoryGirl.create(:friendship)
+      user = FactoryGirl.create(:user1)
+      friend = FactoryGirl.create(:user2)
+      friendship1 = FactoryGirl.create(:friendship, user: friend, friend: user )
+      friendship2 = FactoryGirl.create(:friendship1, user: user, friend: friend)
 
-      user1 = friendship1.user
-      user2 = friendship1.friend
-
-      expect(user1.friends).to include(user2)
+      expect(user.friends).to include(friend)
+      expect(friend.friends).to include(user)
     end
 
   end

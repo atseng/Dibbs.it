@@ -17,8 +17,8 @@
     <td><%= @item.description %></td>
     <td><%= @item.value %></td>
     <td><%= form_for [@item, @item.loans.build] do |f| %>
-        <% if @item.loans.find_by_state("loaned") %>
-             <%= "Loaned" %>
+        <% if @item.loans.find_by_state("dibbs") %>
+             <%= "Dibbs Request" %>
           <% else %>
             <%= f.submit "Dibbs" %>
         <% end %>

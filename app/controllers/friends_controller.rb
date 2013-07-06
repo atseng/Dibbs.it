@@ -28,7 +28,7 @@ class FriendsController < ApplicationController
   def update
     @user = User.find(current_user)
     @friend = User.find(params[:id])
-    params[:friendship1] = {:user_id => @user.id, :friend_id => @friend.id, :status => 'accepted'}
+    params[:friendship1] = {:user_id => @friend.id, :friend_id => @user.id, :status => 'accepted'}
     params[:friendship2] = {:user_id => @friend.id, :friend_id => @user.id, :status => 'accepted'}
     @friendship1 = Friendship.find(current_user.friendships[0])
     @friendship2 = Friendship.find(@friend.friendships[0])

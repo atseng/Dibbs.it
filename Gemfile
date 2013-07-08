@@ -15,6 +15,7 @@ gem 'ransack'
 gem 'twilio-ruby'
 gem 'phony_rails'
 gem 'bourbon'
+gem 'simple_form'
 
 
 # Gems used only for assets and not required

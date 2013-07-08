@@ -21,6 +21,15 @@
            { :controller => :loans, :action=> :update, :item_id => item, :id => item.loans},
            { :remote => true } %>
          </td>
+         <td><%= simple_form_for item do |f| %>
+             <%- unless item.loaned? %>
+              <div class="return_button">
+                <%= f.hidden_field :state_event, value: "return" %>
+                <%= f.button :submit, "Return it" %>
+              </div>
+             <%- end %>
+            <%- end %>
+          </td>
         </tr>
       <% end %>
     <% end %>

@@ -32,7 +32,7 @@
 
         <% @users.each do |user| %>
           <tr>
-            <% unless current_user == user || current_user.pending_friends.include?(user) || current_user.friends.include?(user) || current_user.requested_friends.include?(user) %>
+            <% unless current_user == user || current_user.pending_friends.include?(user) || current_user.friends.include?(user) || current_user.requested_friends.include?(user) || current_user.friendships.include?(user) %>
               <td><%= user.name %></td>
               <td><%= user.email %></td>
               <td>
@@ -48,6 +48,3 @@
   </div>
 </div>
 
-
-
-<%= debug(params) if Rails.env.development? %>

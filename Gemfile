@@ -14,6 +14,7 @@ gem 'fog', '~> 1.3.1'
 gem 'ransack'
 gem 'twilio-ruby'
 gem 'phony_rails'
+gem 'bourbon'
 
 
 # Gems used only for assets and not required
@@ -26,6 +27,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'zurb-foundation'
 end
 
 group :development do

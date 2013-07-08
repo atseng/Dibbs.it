@@ -1,43 +1,45 @@
 <div class="wrapper">
     <div id="animate-bg">
+      <div id="Dibbs-Welcome">
+
+      </div>
       <div class="form signup">
-
-          <ul>
+        <ul>
+          <li>
+            <span>•••••••••••••</span>
+          </li>
+              <h2>Sign up</h2>
             <li>
-              <span>•••••••••••••</span>
-            </li>
-                <h2>Sign up</h2>
-              <li>
-              <span>•••••••••••••</span>
-            </li>
-          </ul>
+            <span>•••••••••••••</span>
+          </li>
+        </ul>
 
-              <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-                <%= devise_error_messages! %>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
 
-                <div><%= f.label :name %><br />
-                <%= f.text_field :name %></div>
+          <div><%= f.label :name %><br />
+          <%= f.text_field :name %></div>
 
-                <div><%= f.label :phone_number %><br />
-                <%= f.text_field :phone_number %><br /></div>
+          <div><%= f.label :phone_number %><br />
+          <%= f.text_field :phone_number %><br /></div>
 
-                <div><%= f.check_box :receives_notifications %>
-                <%= f.label :receives_notifications %><br /></div>
+          <div><%= f.check_box :receives_notifications %>
+          <%= f.label :receives_notifications %><br /></div>
 
-                <div><%= f.label :email %><br />
-                <%= f.email_field :email, :autofocus => true %></div>
+          <div><%= f.label :email %><br />
+          <%= f.email_field :email, :autofocus => true %></div>
 
-                <div><%= f.label :password %><br />
-                <%= f.password_field :password %></div>
+          <div><%= f.label :password %><br />
+          <%= f.password_field :password %></div>
 
-                <div><%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation %></div>
+          <div><%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation %></div>
 
 
-                <div><%= f.submit "Sign up", class:"btn btn--small" %></div>
-              <% end %>
+          <div><%= f.submit "Sign up", class:"btn btn--small" %></div>
+        <% end %>
 
-              <%= render "devise/shared/links" %>
+        <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>

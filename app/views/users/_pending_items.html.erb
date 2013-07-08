@@ -18,7 +18,14 @@
           <td><%= item.category %></td>
           <td><%= item.description %></td>
           <td><%= item.value %></td>
-          <td><%= button_to "Loan it!", url: edit_item_loan_path(item, item.loans), :action => "edit", :remote => true %></td>
+          <td><%= simple_form_for [item, item.loans.last] do |f| %>
+             <% if item.dibbs? %>
+              <div class="loan btn btn--small">
+                <%= f.hidden_field :state_event, value: "loan" %>
+                <%= f.button :submit, "Lend it!" %>
+              </div>
+             <%- end %>
+            <%- end %>
           </td>
         </tr>
       <% end %>

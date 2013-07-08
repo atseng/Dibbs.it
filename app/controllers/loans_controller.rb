@@ -17,40 +17,16 @@ class LoansController < ApplicationController
     end
   end
 
-
-  def edit
-    @item = Item.find(params[:item_id])
-    @loan = @item.loans.find(params[:id])
-    @loan.loan
-
-    respond_to do |format|
-      if @loan.save
-         format.html { redirect_to(@loan, :notice => 'Item loaned.') }
-         format.js
-      else
-        format.html { render :nothing => true }
-        format.js
-      end
-    end
-  end
-
   def update
     @item = Item.find(params[:item_id])
     @loan = @item.loans.find(params[:id])
 
-    respond_to do |format|
-      if @loan.update_attributes.(params[:id])
-        flash[:notice] = "Item Return"
-        @loan.return
-        @messenger = TwilioMessenger.new(@loan.borrower)
-        @messenger.send_text("Hey #{@loan.borrower.name}. I need that #{@item.name} back. Get it back to me by end of the week.")
-        format.html { redirect_to user_items_path(current_user, :notice => 'Issue Item Return')}
-      else
-        redirect_to user_items_path(@loan.owner)
-        flash[:notice] = "Error. Unable to issue item return"
-        format.html { render :nothing => true }
-        format.js
-      end
+    if @loan.update_attributes(params[:loan])
+      flash[:notice] = "Loan updated"
+      redirect_to edit_user_path(current_user)
+    else
+      redirect_to user_items_path(@loan.owner)
+      flash[:notice] = "Error. Unable to issue item return"
     end
   end
 

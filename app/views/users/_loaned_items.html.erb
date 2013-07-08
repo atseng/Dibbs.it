@@ -17,10 +17,15 @@
           <td><%= item.category %></td>
           <td><%= item.description %></td>
           <td><%= item.value %></td>
-          <td><%= button_to "Return it!",
-           { :controller => :loans, :action=> :update, :item_id => item, :id => item.loans},
-           { :remote => true } %>
-         </td>
+         <td><%= simple_form_for [item, item.loans.last] do |f| %>
+             <% if item.loaned? %>
+              <div class="return btn btn--small">
+                <%= f.hidden_field :state_event, value: "return" %>
+                <%= f.button :submit, "Return it!" %>
+              </div>
+             <%- end %>
+            <%- end %>
+          </td>
         </tr>
       <% end %>
     <% end %>

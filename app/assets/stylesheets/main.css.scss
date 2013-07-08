@@ -1,0 +1,91 @@
+ @import "bourbon";
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+
+}
+
+.wrapper{
+  max-width: 2400px;
+  min-height: 1000px;
+  margin: 5%;
+  background-image: url(dibbs-instagram-bg.jpg);
+  background-size: contain;
+  @include clearfix;
+}
+
+.form{
+  margin-right: 10%;
+  float: right;
+  border: 5px solid #292929;
+  outline: 5px solid #e3e3e3;
+  margin-top: 8%;
+  padding: 50px;
+  width: 18.5%;
+  background-color: rgba(245,245,245,1);
+}
+
+.form ul{
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+.form li{
+  text-align: center;
+  display: inline;
+}
+
+.form h2{
+  margin-bottom: 20px;
+  text-align: center;
+  display: inline;
+  text-size: 1em;
+}
+
+.signup{
+  padding: 50px;
+  width: 20%;
+}
+
+.form-title{
+  margin: 0 auto;
+}
+
+h1{
+  margin-left: 5%;
+}
+
+
+input{
+  width: 100%;
+  padding: 5px 0px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  color: black;
+  border: 1px solid #781351
+}
+
+input[type="submit"] {
+  color: white;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+span{
+  text-decoration: none;
+  color: #9b856c;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.submit input{
+  color: #000;
+  background: #ffa20f;
+  border: 2px outset #d7b9c9
+}
+
+

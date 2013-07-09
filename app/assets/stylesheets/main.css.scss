@@ -56,6 +56,26 @@ body{
   width: 35%;
 }
 
+.signup label{
+  margin-left: 12%;
+}
+
+
+.signup input{
+  margin-left: 12%;
+  width: 75%;
+}
+
+input#user_receives_notifications{
+  width: 2%;
+}
+
+label#user_recieves_notifications{
+  display: inline;
+  text-align: left;
+  width: 127px;
+}
+
 
 h1{
   margin-left: 5%;

@@ -2,3 +2,57 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+  .search-wrapper{
+    margin:0 auto;
+    width: 75%;
+    height: 800px;
+  }
+
+
+  .send-invitation{
+    float: right;
+    width: 20%;
+    border: solid 1px;
+    border-radius: 1px;
+    border-padding: 2px;
+    background: #FF6347;
+  }
+
+  .send-invitation li{
+    text-align: center;
+    list-style: none;
+  }
+
+  .send-invitation a{
+    text-decoration: none;
+  }
+
+  #search-container{
+    margin: 0 auto;
+    width: 60%;
+  }
+
+
+  #search{
+    padding: 20px;
+    background: white;
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  #search input[type="submit"]{
+    margin-left: 95px;
+    background-color: #00BFFF;
+  }
+
+
+  .table{
+    clear: both;
+    padding: 50px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .table td{
+    padding-left: 20px;
+  }

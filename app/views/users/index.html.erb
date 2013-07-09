@@ -1,50 +1,51 @@
-<div class="container2">
-  <div class="row">
-     <%= render 'nav' %>
-    <div class="span12">
-    <div class="search">
-
+<div class="container">
+  <%= render 'nav' %>
+  <div class="search-wrapper">
+    <div id="search">
       <%= search_form_for @q do |f| %>
-        <div class ="field">
-          <%= f.label :name_or_email_cont, "User Name or Email" %>
-          <%= f.text_field :name_or_email_cont %>
-        </div>
-        <div class="actions"><%= f.submit "Search" %></div>
-      <% end %>
-    </div>
+          <div class ="field">
+            <%= f.text_field :name_or_email_cont, value: "Enter user name or email" %>
 
-    <div class="send_invitation">
-      <% if current_user.invitation_limit > 0 %>
-        <li>
-          <%= link_to "Invite a friend", new_invitations_path %>
-          (<%= current_user.invitation_limit %>) left
-        </li>
-      <% end %>
-    </div>
-
-      <table class= "table">
-        <tr>
-          <th><%= sort_link @q, :name, "Name" %></th>
-          <th><%= sort_link @q, :email,
-          "Email" %></th>
-          <th></th>
-        </tr>
-
-        <% @users.each do |user| %>
-          <tr>
-            <% unless current_user == user || current_user.pending_friends.include?(user) || current_user.friends.include?(user) || current_user.requested_friends.include?(user) || current_user.friendships.include?(user) %>
-              <td><%= user.name %></td>
-              <td><%= user.email %></td>
-              <td>
-               <%= form_for(:friendship, :url => user_friendships_path(:user_id => current_user.id, :friend_id => user.id)) do |f| %>
-               <%= f.submit "Friend Request", :method => "post" %>
-               <% end %>
-             </td>
+            <div class="actions"><%= f.submit "Search" %></div>
             <% end %>
-          </tr>
-        <% end %>
-      </table>
+          </div>
+      </div>
+
+
+      <div id="search-container">
+        <div class="send-invitation">
+          <% if current_user.invitation_limit > 0 %>
+            <li>
+              <%= link_to "Invite a friend", new_invitations_path %>
+              (<%= current_user.invitation_limit %>) left
+            </li>
+          <% end %>
+        </div>
+
+          <table class= "table">
+            <tr>
+              <td><%= sort_link @q, :name, "Name" %></td>
+              <td><%= sort_link @q, :email,
+              "Email" %></td>
+              <td></td>
+            </tr>
+
+            <% @users.each do |user| %>
+              <tr>
+                <% unless current_user == user || current_user.pending_friends.include?(user) || current_user.friends.include?(user) || current_user.requested_friends.include?(user) || current_user.friendships.include?(user) %>
+                  <td><%= user.name %></td>
+                  <td><%= user.email %></td>
+                  <td>
+                   <%= form_for(:friendship, :url => user_friendships_path(:user_id => current_user.id, :friend_id => user.id)) do |f| %>
+                   <%= f.submit "Friend Request", :method => "post" %>
+                   <% end %>
+                 </td>
+                <% end %>
+              </tr>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 </div>
 

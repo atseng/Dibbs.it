@@ -10,12 +10,14 @@
 
 
   .send-invitation{
+    margin-top: 2%;
     float: right;
-    width: 20%;
+    width: 30%;
+    margin-right: 2.5%;
     border: solid 1px;
     border-radius: 1px;
     border-padding: 2px;
-    background: #FF6347;
+    background: #2eba12;
   }
 
   .send-invitation li{
@@ -55,7 +57,7 @@
     margin-left: 5px;
     width: 120px;
     border-radius: 2px;
-    background-color: #00BFFF;
+    background-color: #61eb9d;
   }
 
 
@@ -67,5 +69,13 @@
   }
 
   .table td{
-    padding-left: 20px;
+    padding-left: 8px;
+  }
+
+
+  .table input[type="submit"]{
+    width: 145px;
+    margin-left: 8%;
+    background-color: #00BFFF;
+    font-family: Helvetica, Arial, Sans-Serif;
   }

@@ -8,13 +8,45 @@ body{
 
 }
 
-.nav-container{
+#nav-container{
+  width: 100%;
 
 }
 
-.nav{
+#nav{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 8px 0px #000000;
+  -moz-box-shadow: 0px 0px 8px 0px #000000;
+  box-shadow: 0px 0px 8px 0px #000000;
+  background-color: rgba(1, 1, 1, 0.8);
+  color: rgba(1, 1, 1, 0.8);
+  z-index: 10;
 
 }
+
+#nav ul{
+  list-style-type: none;
+  text-align: center;
+}
+
+#nav li{
+  display: inline-block;
+}
+
+#nav a{
+  padding: .2em 2em;
+  text-decoration: none;
+  display: block;
+  color: white;
+}
+
+#nav a:hover{
+  color: #fff;
+  background-color: #369;
+}
+
 
 .wrapper{
   max-width: 1280px;

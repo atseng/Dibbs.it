@@ -4,7 +4,7 @@
     <div id="search">
       <%= search_form_for @q do |f| %>
           <div class ="field">
-            <%= f.text_field :name_or_email_cont, value: " Enter user name or email..." %>
+            <%= f.text_field :name_or_email_cont, placeholder: " Enter user name or email..." %>
 
             <div class="actions"><%= f.submit "Search" %></div>
             <% end %>

@@ -8,9 +8,17 @@ body{
 
 }
 
+.nav-container{
+
+}
+
+.nav{
+
+}
+
 .wrapper{
-  max-width: 2400px;
-  min-height: 1000px;
+  max-width: 1280px;
+  min-height: 753px;
   margin: 5%;
   background-image: url(dibbs-instagram-bg.jpg);
   background-size: contain;
@@ -18,41 +26,36 @@ body{
 }
 
 .form{
-  margin-right: 10%;
+  margin-right: 5%;
   float: right;
   border: 5px solid #292929;
   outline: 5px solid #e3e3e3;
   margin-top: 8%;
   padding: 50px;
-  width: 18.5%;
+  width: 30%;
   background-color: rgba(245,245,245,1);
 }
 
 .form ul{
-  list-style: none;
   margin-bottom: 25px;
 }
 
 .form li{
-  text-align: center;
   display: inline;
 }
 
 .form h2{
   margin-bottom: 20px;
-  text-align: center;
   display: inline;
   text-size: 1em;
 }
 
 .signup{
-  padding: 50px;
-  width: 20%;
+  margin-top: 6%;
+  padding: 20px;
+  width: 35%;
 }
 
-.form-title{
-  margin: 0 auto;
-}
 
 h1{
   margin-left: 5%;

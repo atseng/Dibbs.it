@@ -36,12 +36,25 @@
   #search{
     padding: 20px;
     background: white;
-    width: 400px;
+    width: 420px;
+    padding-bottom: 100px;
     margin: 0 auto;
   }
 
+  input#q_name_or_email_cont{
+    float: left;
+    display: inline;
+    width: 240px;
+    border-radius: 2px;
+    color: gray;
+  }
+
   #search input[type="submit"]{
-    margin-left: 95px;
+    float: left;
+    display: inline;
+    margin-left: 5px;
+    width: 120px;
+    border-radius: 2px;
     background-color: #00BFFF;
   }
 

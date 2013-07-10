@@ -9,8 +9,8 @@
 
   .main{
     float: right;
-    margin-left: 35%;
-    width: 70%;
+    margin-right: 15%;
+    width: 65%;
   }
 
   #sidebar{
@@ -20,7 +20,36 @@
     width: 20%;
   }
 
-  .view-friends{
-    float:left;
-    top: 0;
+  .friends-list{
+    width: 60%;
+    margin-left: 20%;
+
+  }
+
+  .view-friends h2{
+    text-align: center;
+  }
+
+  .friends-list{
+    list-style-type: none;
+  }
+
+  .friends-list a{
+    text-decoration: none;
+  }
+
+  .view-friendrequests ul{
+    list-style-type: none;
+  }
+
+  .view-friendrequests a{
+    text-decoration: none;
+  }
+
+  .view-pending ul{
+    list-style-type: none;
+  }
+
+  .view-pending a{
+    text-decoration: none;
   }

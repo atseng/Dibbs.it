@@ -2,7 +2,7 @@
   <div id = "nav-container">
     <div id = "nav">
       <ul>
-        <li><%= link_to "Add Item", new_item_path %></li>
+        <li><%= link_to "My Items", edit_user_path(current_user) %></li>
         <li><%= link_to "Find Friends", users_path %></li>
         <li><%= link_to "Find Items", search_path %></li>
         <li><%= link_to "My Friendships", user_friendships_path(current_user) %></li>

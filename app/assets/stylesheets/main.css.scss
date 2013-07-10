@@ -10,13 +10,13 @@ body{
 
 #nav-container{
   width: 100%;
-
 }
 
 #nav{
   position: fixed;
   top: 0;
   width: 100%;
+
   -webkit-box-shadow: 0px 0px 8px 0px #000000;
   -moz-box-shadow: 0px 0px 8px 0px #000000;
   box-shadow: 0px 0px 8px 0px #000000;
@@ -37,7 +37,7 @@ body{
 }
 
 #nav a{
-  padding: .2em 2em;
+  padding: .05em 2em;
   text-decoration: none;
   display: block;
   color: white;

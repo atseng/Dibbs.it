@@ -1,3 +1,4 @@
+<div class="row"></div>
 <%= render 'nav' %>
 <div class="container">
   <table class= "table">
@@ -11,9 +12,9 @@
       <th>Status</th>
     </tr>
     <tr>
-      <td><%= @item.avatar %></td>
+      <td><%= image_tag @item.avatar_url(:desktop) if @item.avatar? %></td>
       <td><%= @item.name %></td>
-       <td><%= @item.activity %></td>
+      <td><%= @item.activity %></td>
       <td><%= @item.category %></td>
       <td><%= @item.description %></td>
       <td><%= @item.value %></td>

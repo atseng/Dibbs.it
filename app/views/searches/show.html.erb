@@ -1,44 +1,46 @@
-<div class="row">
-  <%= render 'nav' %>
-  <div class="container">
-      <div class="search">
+<div class="row"></div>
+<%= render 'nav' %>
+<div class="search-item-container">
+  <div class="search">
 
    <%= search_form_for @q, url: search_path, method: :get do |f| %>
-       <div class="field">
-        <%= f.label :name_cont, "Item Name" %>
-        <%= f.text_field :name_cont %>
-      </div>
-
-      <div class="activity_select">
-        <%= f.label :activity, "Activity" %>
-        <%= f.select :activity_eq, options_for_select([['Select', ''], ["Art & Music"], ["Dance Party"], ["Drinking"], ["Camping"], ["Chilling"], ["Cookout"], ["Game Night"], ["Girl's Night"], ["Guy's Night"], ["Fitness"], ["Movie Night"], ["Night In"], ["Road Trip"], ["Studying"], ["Tailgating"], ["Other"]], :selected => :activity) %>
-        </div>
-
-        <div class="category_select">
-          <%= f.label :category, "Category" %>
-          <%= f.select :category_eq, options_for_select([['Select', ''], ["Accessories"], ["Books"], ["Clothes"], ["Dorm"], ["Electronics"], ["Films"], ["Games"], ["Gear"], ["Music"], ["Sports"], ["Shoes"], ["Textbooks"], ["Outdoors"], ["Video Games"], ["Misc"]], :selected => :category) %>
-        </div>
+      <div class="field">
+        <%= f.text_field :name_cont, placeholder: " Enter item name..." %>
 
         <div class="actions"><%= f.submit "Search" %></div>
-    <% end %>
-    </div>
+      </div>
 
-    <table id="items">
-      <tr>
-        <th><%= sort_link @q, :name, "Item" %></th>
-        <th><%= sort_link @q, :activity, "Activity" %></th>
-        <th><%= sort_link @q, :category, "Category" %></th>
-      </tr>
-        <% @items.each do |item| %>
-        <% unless current_user == item.user %>
-          <tr>
-            <td><%= link_to(item.name, item) %></td>
-            <td><%= item.activity %></td>
-            <td><%= item.category %></td>
-          </tr>
-        <% end %>
+        <div class="activity_select">
+          <%= f.label :activity, "Activity" %>
+          <%= f.select :activity_eq, options_for_select([['Select', ''], ["Art & Music"], ["Dance Party"], ["Drinking"], ["Camping"], ["Chilling"], ["Cookout"], ["Game Night"], ["Girl's Night"], ["Guy's Night"], ["Fitness"], ["Movie Night"], ["Night In"], ["Road Trip"], ["Studying"], ["Tailgating"], ["Other"]], :selected => :activity) %>
+          </div>
+
+          <div class="category_select">
+            <%= f.label :category, "Category" %>
+            <%= f.select :category_eq, options_for_select([['Select', ''], ["Accessories"], ["Books"], ["Clothes"], ["Dorm"], ["Electronics"], ["Films"], ["Games"], ["Gear"], ["Music"], ["Sports"], ["Shoes"], ["Textbooks"], ["Outdoors"], ["Video Games"], ["Misc"]], :selected => :category) %>
+          </div>
+
       <% end %>
-    </table>
+
+      <table id="items">
+        <tr>
+          <th></th>
+          <th><%= sort_link @q, :name, "Item" %></th>
+          <th><%= sort_link @q, :activity, "Activity" %></th>
+          <th><%= sort_link @q, :category, "Category" %></th>
+        </tr>
+          <% @items.each do |item| %>
+          <% unless current_user == item.user %>
+            <tr>
+              <td><%= image_tag item.avatar_url(:mobile) if item.avatar? %></td>
+              <td><%= link_to(item.name, item) %></td>
+              <td><%= item.activity %></td>
+              <td><%= item.category %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+     </div>
     </div>
   </div>
-</div>
+

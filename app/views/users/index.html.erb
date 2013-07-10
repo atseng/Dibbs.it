@@ -22,13 +22,13 @@
           <% end %>
         </div>
 
-          <table class= "table">
-            <tr>
-              <td><%= sort_link @q, :name, "Name" %></td>
-              <td><%= sort_link @q, :email,
-              "Email" %></td>
-              <td></td>
-            </tr>
+        <table class= "table">
+          <tr>
+            <td><%= sort_link @q, :name, "Name" %></td>
+            <td><%= sort_link @q, :email,
+            "Email" %></td>
+            <td></td>
+          </tr>
 
             <% @users.each do |user| %>
               <tr>
@@ -43,9 +43,11 @@
                 <% end %>
               </tr>
             <% end %>
-          </div>
+          </table>
+
         </div>
       </div>
     </div>
+  </div>
 </div>
 

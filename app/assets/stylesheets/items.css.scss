@@ -10,3 +10,21 @@
 table.show{
   margin-top: 10%;
 }
+
+.new-item{
+  position: absolute;
+  top: 6%;
+  right: 30%;
+}
+
+.new-item input[type="submit"]{
+  background-color: #61eb9d;
+}
+
+.new-activity{
+  margin: 10px 0px;
+}
+
+.new-category{
+  margin-bottom: 10px;
+}

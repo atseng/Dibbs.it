@@ -12,7 +12,13 @@
     </tr>
     <tr>
       <td><%= image_tag @item.avatar_url(:desktop) if @item.avatar? %></td>
-      <td><%= @item.name %></td>
+
+      <% if @item.user == current_user %>
+        <td><%= link_to @item.name, edit_item_path(@item)%></td>
+      <% else %>
+        <td><%= @item.name %></td>
+      <% end %>
+
       <td><%= @item.activity %></td>
       <td><%= @item.category %></td>
       <td><%= @item.description %></td>

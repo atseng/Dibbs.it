@@ -11,29 +11,46 @@
     </div>
   <% end %>
 
+  <div class="new-item form">
+    <div class="edit-title">
+      <ul>
+        <li>
+          <span>•••••••</span>
+        </li>
+            <h2>Edit Item</h2>
+          <li>
+          <span>•••••••</span>
+        </li>
+      </ul>
+    </div>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
-<%= f.file_field :avatar %>
+      <%= f.file_field :avatar %>
 
-<%= f.label :activity %>
-<%  @activities = [ "Art & Music", "Dance Party", "Drinking", "Camping", "Chilling", "Cookout", "Game Night", "Girl's Night", "Guy's Night", "Fitness", "Movie Night", "Night In", "Road Trip", "Studying", "Tailgating", "Other" ] %>
-<%= f.select :activity, @activities %>
+    <div class="new-activity">
+      <%= f.label :activity %>
+      <%  @activities = [ ["Select One", " "], "Art & Music", "Dance Party", "Drinking", "Camping", "Chilling", "Cookout", "Game Night", "Girl's Night", "Guy's Night", "Fitness", "Movie Night", "Night In", "Road Trip", "Studying", "Tailgating", "Other" ] %>
+      <%= f.select :activity, @activities %>
+    </div>
 
-<%= f.label :category %>
-<%  @categories = ["Accessories", "Books", "Clothes", "Dorm", "Electronics", "Films", "Games", "Gear", "Music", "Sports", "Shoes", "Textbooks", "Outdoors", "Video Games", "Misc" ] %>
-<%= f.select :category, @categories %>
+    <div class="new-category">
+      <%= f.label :category %>
+      <%  @categories = [ ["Select One", " "], "Accessories", "Books", "Clothes", "Dorm", "Electronics", "Films", "Games", "Gear", "Music", "Sports", "Shoes", "Textbooks", "Outdoors", "Video Games", "Misc" ] %>
+      <%= f.select :category, @categories %>
+    </div>
 
-<%= f.label :description %>
-<%= f.text_field :description %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
 
-<%= f.label :value %>
-<%= f.text_field :value %>
+    <%= f.label :value %>
+    <%= f.text_field :value %>
 
-<%= f.submit "Edit Item" %>
+    <%= f.submit "Edit Item" %>
 
-<% end %>
+    <% end %>
+
+</div>
 
 
-<%= debug(params) if Rails.env.development? %>

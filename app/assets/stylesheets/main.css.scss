@@ -8,51 +8,117 @@ body{
 
 }
 
+#nav-container{
+  width: 100%;
+}
+
+#nav{
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  -webkit-box-shadow: 0px 0px 8px 0px #000000;
+  -moz-box-shadow: 0px 0px 8px 0px #000000;
+  box-shadow: 0px 0px 8px 0px #000000;
+  background-color: rgba(1, 1, 1, 0.8);
+  color: rgba(1, 1, 1, 0.8);
+  z-index: 10;
+
+}
+
+#nav ul{
+  list-style-type: none;
+  text-align: center;
+}
+
+#nav li{
+  display: inline-block;
+  color: white;
+}
+
+#nav a{
+  padding: .05em 2em;
+  text-decoration: none;
+  display: block;
+  color: white;
+}
+
+#nav a:hover{
+  color: #fff;
+  background-color: #369;
+}
+
+
 .wrapper{
-  max-width: 2400px;
-  min-height: 1000px;
+  max-width: 1280px;
+  min-height: 753px;
   margin: 5%;
   background-image: url(dibbs-instagram-bg.jpg);
   background-size: contain;
   @include clearfix;
 }
 
+.alert{
+  margin-top: 2%;
+  text-align: center;
+}
+
+.notice{
+  margin-top: 2%;
+  text-align: center;
+}
+
 .form{
-  margin-right: 10%;
+  margin-right: 5%;
   float: right;
   border: 5px solid #292929;
   outline: 5px solid #e3e3e3;
   margin-top: 8%;
   padding: 50px;
-  width: 18.5%;
+  width: 30%;
   background-color: rgba(245,245,245,1);
 }
 
 .form ul{
-  list-style: none;
   margin-bottom: 25px;
 }
 
 .form li{
-  text-align: center;
   display: inline;
 }
 
 .form h2{
   margin-bottom: 20px;
-  text-align: center;
   display: inline;
   text-size: 1em;
 }
 
 .signup{
-  padding: 50px;
-  width: 20%;
+  margin-top: 6%;
+  padding: 20px;
+  width: 35%;
 }
 
-.form-title{
-  margin: 0 auto;
+.signup label{
+  margin-left: 12%;
 }
+
+
+.signup input{
+  margin-left: 12%;
+  width: 75%;
+}
+
+input#user_receives_notifications{
+  width: 2%;
+}
+
+label#user_recieves_notifications{
+  display: inline;
+  text-align: left;
+  width: 127px;
+}
+
 
 h1{
   margin-left: 5%;
@@ -88,4 +154,26 @@ span{
   border: 2px outset #d7b9c9
 }
 
+.forgot{
+  position: absolute;
+  top: 15%;
+  right: 30%
+}
+
+.forgot input[type="submit"] {
+  color: white;
+  width: 60%;
+  margin-bottom: 10px;
+  border: 2px outset #d7b9c9;
+  background: #2c77ba;
+}
+
+.forgot-title{
+  width: 75%;
+  margin: 0 auto;
+}
+
+.forgot-title h2{
+  text-align: center;
+}
 

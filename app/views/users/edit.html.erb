@@ -14,14 +14,15 @@
 
   <%= render 'nav' %>
 
+<div class="container">
   <h1> My Items </h1>
     <%= render 'my_items' %>
-  Pending Items:
+  <h2>Pending Items</h2>
     <%= render 'pending_items' %>
-  Loaned Items:
+  <h2>Loaned Items</h2>
     <%= render 'loaned_items'  %>
 
 
 <li><%= link_to "Add Item", new_item_path %></li>
 
-
+</div>

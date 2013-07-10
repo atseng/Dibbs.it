@@ -4,13 +4,21 @@
   You do not have permission to access this page!
 <% else %>
 
-  My Friends:
-    <%= render 'friends' %>
-  Friendship Requests:
-    <%= render 'requested_friends' %>
-  Pending Friendships:
-    <%= render 'pending_friends'  %>
-
-<% end %>
-
+<div class="friend-container container">
+  <div class="main">
+    <div class="view-friends">
+      <h2>My Friends</h2>
+      <%= render 'friends' %>
+    </div>
+  </div>
+    <div class="aside">
+      <h3>Friendship Requests</h3>
+      <%= render 'requested_friends' %>
+      <div class="bside">
+        <h3>Pending Friendships</h3>
+        <%= render 'pending_friends'  %>
+      </div>
+     </div>
+  <% end %>
+</div>
 

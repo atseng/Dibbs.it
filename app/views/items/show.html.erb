@@ -1,31 +1,39 @@
 <%= render 'nav' %>
-<table class= "table">
-  <tr>
-    <th>Avatar</th>
-    <th>Item</th>
-    <th>Activity</th>
-    <th>Category</th>
-    <th>Comments</th>
-    <th>Value</th>
-    <th>Status</th>
-  </tr>
-  <tr>
-    <td><%= @item.avatar %></td>
-    <td><%= @item.name %></td>
-     <td><%= @item.activity %></td>
-    <td><%= @item.category %></td>
-    <td><%= @item.description %></td>
-    <td><%= @item.value %></td>
-    <td><%= form_for [@item, @item.loans.build] do |f| %>
-        <% if @item.loans.find_by_state("dibbs") %>
-             <%= "Dibbs Request" %>
-          <% else %>
-            <%= f.submit "Dibbs" %>
-        <% end %>
+<div class="itemshow">
+  <table class= "table show">
+    <tr>
+      <th>Avatar</th>
+      <th>Item</th>
+      <th>Activity</th>
+      <th>Category</th>
+      <th>Comments</th>
+      <th>Value</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td><%= image_tag @item.avatar_url(:desktop) if @item.avatar? %></td>
+
+      <% if @item.user == current_user %>
+        <td><%= link_to @item.name, edit_item_path(@item)%></td>
+      <% else %>
+        <td><%= @item.name %></td>
       <% end %>
-      </td>
-  </tr>
-</table>
+
+      <td><%= @item.activity %></td>
+      <td><%= @item.category %></td>
+      <td><%= @item.description %></td>
+      <td><%= @item.value %></td>
+      <td><%= form_for [@item, @item.loans.build] do |f| %>
+          <% if @item.loans.find_by_state("dibbs") %>
+               <%= "Dibbs Request" %>
+            <% else %>
+              <%= f.submit "Dibbs" %>
+          <% end %>
+        <% end %>
+        </td>
+    </tr>
+  </table>
+</div>
 
 
-<%= debug(params) if Rails.env.development? %>
+

@@ -1,3 +1,63 @@
 // Place all the styles related to the friends controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+  .friend-container{
+    margin: 0 auto;
+    width: 75%;
+  }
+
+  .main{
+    float: right;
+    width: 100%;
+    background: #FFFF33;
+    border-radius: 8px;
+  }
+
+  .aside{
+    width: 100%;
+    background: #FF9933;
+    border-radius: 8px;
+
+  }
+
+  .bside{
+    width: 100%;
+    height: 100%;
+    background: #FF0033;
+    border-radius: 8px;
+  }
+
+
+  .friends-list{
+    width: 60%;
+    margin-left: 20%;
+  }
+
+  .view-friends h2{
+    text-align: center;
+  }
+
+  .friends-list ul{
+    list-style-type: none;
+  }
+
+  .friends-list a{
+    text-decoration: none;
+  }
+
+  .view-friendrequests ul{
+    list-style-type: none;
+  }
+
+  .view-friendrequests a{
+    text-decoration: none;
+  }
+
+  .view-pending ul{
+    list-style-type: none;
+  }
+
+  .view-pending a{
+    text-decoration: none;
+  }

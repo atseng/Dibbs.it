@@ -1,0 +1,62 @@
+// Place all the styles related to the Search controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.search-item-container{
+  margin: 0 auto;
+  margin-top: 9%;
+  width: 75%;
+}
+
+input#q_name_cont{
+  float: left;
+  display: inline;
+  width: 220px;
+  border-radius: 2px;
+  color: gray;
+}
+
+.search{
+  margin-top: 10%;
+  margin:0 auto;
+  width: 75%;
+  height: 175px;
+}
+
+.search input[type="submit"]{
+  display: inline;
+  margin-left: 5px;
+  width: 120px;
+  border-radius: 2px;
+  background-color: #61eb9d;
+}
+
+.activity_select{
+  float: left;
+  margin-left: 15%;
+  margin-right: 10%;
+  display: inline;
+  }
+
+.category_select{
+  float: left;
+  display: inline;
+  }
+
+table#items{
+  padding: 50px;
+  margin-top: 10%;
+}
+
+ #items{
+  margin-top: 5%;
+  margin: 0 auto;
+  width: 75%;
+}
+
+
+#items a{
+  float: left;
+}
+
+

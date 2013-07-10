@@ -20,10 +20,8 @@
           <td><%= item.value %></td>
           <td><%= simple_form_for [item, item.loans.last] do |f| %>
              <% if item.dibbs? %>
-              <div class="loan btn btn--small">
                 <%= f.hidden_field :state_event, value: "loan" %>
                 <%= f.button :submit, "Lend it!" %>
-              </div>
              <%- end %>
             <%- end %>
           </td>

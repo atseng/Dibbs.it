@@ -1,3 +1,26 @@
 // Place all the styles related to the friends controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+  .friend-container{
+    margin: 0 auto;
+    width: 75%;
+  }
+
+  .main{
+    float: right;
+    margin-left: 35%;
+    width: 70%;
+  }
+
+  #sidebar{
+    position: fixed;
+    margin-top: 2.5%;
+    left: 5;
+    width: 20%;
+  }
+
+  .view-friends{
+    float:left;
+    top: 0;
+  }

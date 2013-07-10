@@ -19,10 +19,8 @@
           <td><%= item.value %></td>
          <td><%= simple_form_for [item, item.loans.last] do |f| %>
              <% if item.loaned? %>
-              <div class="return btn btn--small">
                 <%= f.hidden_field :state_event, value: "return" %>
                 <%= f.button :submit, "Return it!" %>
-              </div>
              <%- end %>
             <%- end %>
           </td>

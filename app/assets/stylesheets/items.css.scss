@@ -1,3 +1,88 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.itemshow{
+  width: 75%;
+  margin: 0 auto;
+}
+
+table.show{
+  margin-top: 10%;
+}
+
+.new-item{
+  position: absolute;
+  top: 6%;
+  right: 30%;
+}
+
+.new-item input[type="submit"]{
+  background-color: #61eb9d;
+}
+
+.new-activity{
+  margin: 10px 0px;
+}
+
+.new-category{
+  margin-bottom: 10px;
+}
+
+.container{
+  width: 85%;
+  margin: 0 auto;
+}
+
+.item-wrapper{
+  width: 50%;
+  text-align: center;
+}
+
+.item-wrapper ul{
+  list-style: none;
+}
+
+.avatar-name{
+  padding: 5px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.avatar-name li{
+}
+
+.item-header{
+  padding: 5px;
+  border: 2px solid #292929;
+  outline: 2px solid #e3e3e3;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.item-header li{
+  display: inline-block;
+}
+
+.item-info{
+  width: 50%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 2px;
+  background: #FAF0E6;
+}
+
+.item-info li{
+}
+
+.item-destroy{
+  width: 50%;
+  padding: 10px 0px;
+  margin: 0 auto;
+  background-color: #FF4500;
+}
+
+.item-destroy a{
+  border-radius: 2px;
+  text-decoration: none;
+}

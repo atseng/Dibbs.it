@@ -2,3 +2,91 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+  .container{
+    margin-top: 5%;
+  }
+
+  .search-wrapper{
+    margin:0 auto;
+    margin-top: 7.5%;
+    width: 75%;
+    height: 800px;
+  }
+
+
+  .send-invitation{
+    margin-top: 2%;
+    float: right;
+    width: 30%;
+    height: 5%;
+    margin-right: 2.5%;
+    border: solid 1px;
+    border-radius: 1px;
+    border-padding: 2px;
+    background: #2eba12;
+  }
+
+  .send-invitation li{
+    text-align: center;
+    list-style: none;
+  }
+
+  .send-invitation a{
+    text-decoration: none;
+  }
+
+  #search-container{
+    margin: 0 auto;
+    width: 60%;
+  }
+
+
+  #search{
+    padding: 20px;
+    background: white;
+    width: 420px;
+    padding-bottom: 75px;
+    margin: 0 auto;
+  }
+
+  input#q_name_or_email_cont{
+    float:left;
+    display: inline;
+    width: 220px;
+    border-radius: 2px;
+    color: gray;
+
+  }
+
+  #search input[type="submit"]{
+    float: left;
+    display: inline;
+    margin-left: 5px;
+    width: 120px;
+    border-radius: 2px;
+    background-color: #61eb9d;
+  }
+
+  .field{
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .table{
+    clear: both;
+    padding: 50px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .table td{
+    padding-left: 8px;
+  }
+
+
+  .table input[type="submit"]{
+    width: 145px;
+    margin-left: 8%;
+    background-color: #00BFFF;
+    font-family: Helvetica, Arial, Sans-Serif;
+  }

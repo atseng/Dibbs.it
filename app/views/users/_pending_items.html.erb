@@ -1,23 +1,15 @@
-<div class="span12">
+<div class="profile">
   <table class= "table">
     <tr>
       <th>Avatar</th>
       <th>Item</th>
-      <th>Activity</th>
-      <th>Category</th>
-      <th>Comments</th>
-      <th>Value</th>
       <th>Status</th>
     </tr>
       <% @items.each do |item| %>
        <% unless item.dibbs_it.empty? %>
         <tr>
-          <td><%= image_tag item.avatar_url(:desktop) if item.avatar? %></td>
+          <td><%= image_tag item.avatar_url(:mobile) if item.avatar? %></td>
           <td><%= link_to item.name, item_path(item), method: :get  %></td>
-          <td><%= item.activity %></td>
-          <td><%= item.category %></td>
-          <td><%= item.description %></td>
-          <td><%= item.value %></td>
           <td><%= simple_form_for [item, item.loans.last] do |f| %>
              <% if item.dibbs? %>
                 <%= f.hidden_field :state_event, value: "loan" %>

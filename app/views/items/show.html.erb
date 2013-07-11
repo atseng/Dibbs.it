@@ -22,7 +22,7 @@
       <td><%= @item.activity %></td>
       <td><%= @item.category %></td>
       <td><%= @item.description %></td>
-      <td><%= @item.value %></td>
+      <td><%= "$#{@item.value}" %></td>
       <td><%= form_for [@item, @item.loans.build] do |f| %>
           <% if @item.loans.find_by_state("dibbs") %>
                <%= "Dibbs Request" %>

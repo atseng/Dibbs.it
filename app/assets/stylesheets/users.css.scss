@@ -6,6 +6,21 @@
     margin-top: 5%;
   }
 
+  .add{
+    width: 100px;
+    margin-right: 5%;
+    padding: 8px;
+    padding-left: 15px;
+    background-color: #61eb9d;
+    float: right;
+    list-style: none;
+    border: 1px solid;
+  }
+
+  .add a{
+    text-decoration: none;
+  }
+
   .search-wrapper{
     margin:0 auto;
     margin-top: 7.5%;

@@ -10,14 +10,13 @@
   .main{
     float: right;
     width: 100%;
-    background: #FFFF33;
     border-radius: 8px;
     margin-bottom: 20px;
   }
 
   .aside{
-    width: 100%;
-    background: #FF9933;
+    float:left;
+    width: 25%;
     border-radius: 8px;
     margin-bottom: 20px;
 
@@ -26,15 +25,29 @@
   .bside{
     width: 100%;
     height: 100%;
-    background: #FF0033;
     border-radius: 8px;
   }
 
+  .view-friends{
+    clear: both;
+    width:70%;
+    margin-left: 16.5%;
+  }
 
   .friends-list{
-    width: 60%;
-    margin-left: 20%;
+    width: 70%;
+    margin-left: 16.5%;
   }
+
+  .friends-list li{
+    display: inline;
+
+  }
+
+  .friends-list a{
+    font-size: 24px;
+  }
+
 
   .view-friends h2{
     text-align: center;

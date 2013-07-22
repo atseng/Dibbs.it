@@ -8,6 +8,16 @@ body{
 
 }
 
+#Dibbs-Welcome{
+  position: absolute;
+  top: 35%;
+  left: 9.5%;
+  background-image: url(dibbs-logo.png);
+  min-width: 175px;
+  min-height: 175px;
+  z-index: 10;
+}
+
 #nav-container{
   width: 100%;
 }

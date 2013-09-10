@@ -4,18 +4,104 @@
   box-sizing: border-box;
 }
 
-body{
-
+html, body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 #Dibbs-Welcome{
   position: absolute;
-  top: 35%;
-  left: 9.5%;
-  background-image: url(dibbs-logo.png);
-  min-width: 175px;
-  min-height: 175px;
-  z-index: 10;
+  background-color: rgba(255, 233, 213, 1);
+  min-width: 685px;
+  height: 100%;
+  z-index: 2;
+}
+
+.top-logo{
+  position: absolute;
+  left: 5%;
+  width: 160px;
+  height: 160px;
+  background-image: url(dibbs-logo-slant.png);
+  background-size: contain;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.detail{
+  position: absolute;
+  border-radius: 2px;
+  border: 2px solid rgba(255, 255, 255, .8);
+  outline: 5px solid rgba(28, 200, 255, .8);
+  background-color: rgba(28, 200, 255, .8);
+  z-index: 2;
+}
+
+.detail p{
+  padding: 10px 8px 0px 10px;
+  font-size: 16px;
+  font-family: 'Droid Sans', sans-serif;
+  color: white;
+}
+
+.log1{
+  width: 145px;
+  height: 105px;
+  right: 48px;
+  top: 245px;
+}
+
+// .log2{
+//   width: 245px;
+//   height: 65px;
+//   right: 45px;
+//   top: 299px;
+// }
+
+.iphone{
+  position: relative;
+  margin-top: 16.5%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 265px;
+  height: 457px;
+  background-image: url(dibbs-landing-page.png);
+  overflow: hidden;
+  z-index: 3;
+}
+
+.triangle{
+  position: absolute;
+  top: 175px;
+  left: 50px;
+  width: 0;
+  height: 0;
+  border-left: 65px solid transparent;
+  border-right: 65px solid transparent;
+
+  border-top: 65px solid rgba(20, 255, 195, .8);
+  z-index: 2;
+}
+
+.triangle p {
+  position: fixed;
+  top: 168px;
+  left: 82px;
+  color: white;
+}
+
+.floor{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 35px;
+  z-index: 4;
+}
+
+.floor p{
+  text-align: center;
 }
 
 #nav-container{
@@ -60,12 +146,14 @@ body{
 
 
 .wrapper{
-  max-width: 1280px;
-  min-height: 753px;
-  margin: 5%;
-  background-image: url(dibbs-instagram-bg.jpg);
+  min-width: 547px;
+  height: 100%;
+  background-image: url(dibbs-instagram-lrg-bg.jpg);
+  background-position: 12% 0%;
+  overflow: hidden;
   background-size: contain;
   @include clearfix;
+  z-index: -1;
 }
 
 .alert{
@@ -79,7 +167,7 @@ body{
 }
 
 .form{
-  margin-right: 5%;
+  margin-right: 6.5%;
   float: right;
   border: 5px solid #292929;
   outline: 5px solid #e3e3e3;
@@ -104,7 +192,7 @@ body{
 }
 
 .signup{
-  margin-top: 6%;
+  margin-top: 4.5%;
   padding: 20px;
   width: 35%;
 }

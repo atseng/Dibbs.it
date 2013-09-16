@@ -1,44 +1,48 @@
 <div class="wrapper">
+  <div class="form">
+    <ul>
+      <li>
+        <span>•••••</span>
+      </li>
+        <h2>Sign in</h2>
+      <li>
+        <span>•••••</span>
+      </li>
+    </ul>
+
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+        <div><%= f.label :email %><br />
+        <%= f.email_field :email, :autofocus => true %></div>
+
+        <div><%= f.label :password %><br />
+        <%= f.password_field :password %></div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+        <% end -%>
+
+        <div><%= f.submit "Sign in", class:"btn btn--small" %></div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+  </div>
   <div id="Dibbs-Welcome">
     <div class="top-logo"></div>
-    <div class="log1 detail">
-      <p> Find, share, and track items with your friends</p>
+     <div class="triangle">
+      <p> web app <br> beta 1.1 </p>
     </div>
     <div class="iphone"></div>
-    <div class="triangle">
-      <p> web app </p>
+    <div class="log0 detail">
+      <p> Borrow & share items with friends</p>
     </div>
-    <div class="floor">
-      <p> &copy dibbs </p>
+    <div class="log1 detail">
+      <p> Search items by category & activity</p>
     </div>
+    <div class="log2 detail">
+      <p> Send item push & return notications</p>
+    <div>
   </div>
-  <div id="animate-bg">
-    <div class="form">
-      <ul>
-        <li>
-          <span>•••••</span>
-        </li>
-          <h2>Sign in</h2>
-        <li>
-          <span>•••••</span>
-        </li>
-      </ul>
-
-        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-          <div><%= f.label :email %><br />
-          <%= f.email_field :email, :autofocus => true %></div>
-
-          <div><%= f.label :password %><br />
-          <%= f.password_field :password %></div>
-
-          <% if devise_mapping.rememberable? -%>
-            <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-          <% end -%>
-
-          <div><%= f.submit "Sign in", class:"btn btn--small" %></div>
-        <% end %>
-
-        <%= render "devise/shared/links" %>
-    </div>
+  <div class="floor">
+    <p> &copy dibbs </p>
   </div>
 </div>

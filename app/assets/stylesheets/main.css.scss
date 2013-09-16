@@ -34,31 +34,53 @@ html, body{
   position: absolute;
   border-radius: 2px;
   border: 2px solid rgba(255, 255, 255, .8);
-  outline: 5px solid rgba(28, 200, 255, .8);
-  background-color: rgba(28, 200, 255, .8);
   z-index: 2;
 }
 
 .detail p{
-  padding: 10px 8px 0px 10px;
-  font-size: 16px;
+  font-size: 17px;
   font-family: 'Droid Sans', sans-serif;
   color: white;
 }
 
-.log1{
-  width: 145px;
-  height: 105px;
-  right: 48px;
-  top: 245px;
+.log0{
+  width: 170px;
+  height: 75px;
+  right: 35px;
+  top: 210px;
+  background-color: rgba(28, 200, 255, .8);
+  outline: 5px solid rgba(28, 200, 255, .8);
 }
 
-// .log2{
-//   width: 245px;
-//   height: 65px;
-//   right: 45px;
-//   top: 299px;
-// }
+.log0 p{
+  padding: 0px 8px 0px 14px;
+}
+
+.log1{
+  width: 170px;
+  height: 76px;
+  right: 35px;
+  top: 320px;
+  background-color: rgba(240, 205, 50, .8);
+  outline: 5px solid rgba(255, 217, 124, .8);
+}
+
+.log1 p{
+   padding: 0px 5px 0px 14px;
+}
+
+.log2{
+  width: 170px;
+  height: 76px;
+  right: 35px;
+  top: 430px;
+  background-color: rgba(255, 66, 41, .8);
+  outline: 5px solid rgba(255, 66, 41, .6);
+}
+
+.log2 p{
+  text-align: center;
+}
 
 .iphone{
   position: relative;
@@ -75,11 +97,11 @@ html, body{
 .triangle{
   position: absolute;
   top: 175px;
-  left: 50px;
+  left: 42px;
   width: 0;
   height: 0;
-  border-left: 65px solid transparent;
-  border-right: 65px solid transparent;
+  border-left: 72px solid transparent;
+  border-right: 72px solid transparent;
 
   border-top: 65px solid rgba(20, 255, 195, .8);
   z-index: 2;
@@ -87,21 +109,24 @@ html, body{
 
 .triangle p {
   position: fixed;
-  top: 168px;
-  left: 82px;
+  font-size: 14px;
+  top: 164px;
+  left: 86px;
   color: white;
 }
 
 .floor{
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  width: 100%;
-  height: 35px;
+  left: 258px;
+  width: 155px;
+  height: 40px;
   z-index: 4;
 }
 
 .floor p{
-  text-align: center;
+  padding-bottom: 5px;
+  color: gray;
 }
 
 #nav-container{
@@ -146,7 +171,6 @@ html, body{
 
 
 .wrapper{
-  min-width: 547px;
   height: 100%;
   background-image: url(dibbs-instagram-lrg-bg.jpg);
   background-position: 12% 0%;
@@ -166,14 +190,18 @@ html, body{
   text-align: center;
 }
 
+.form-container{
+  width: 100%;
+}
+
 .form{
-  margin-right: 6.5%;
-  float: right;
+  position: absolute;
+  top: 17.5%;
+  right: 9%;
   border: 5px solid #292929;
   outline: 5px solid #e3e3e3;
-  margin-top: 8%;
+  max-width: 362px;
   padding: 50px;
-  width: 30%;
   background-color: rgba(245,245,245,1);
 }
 
